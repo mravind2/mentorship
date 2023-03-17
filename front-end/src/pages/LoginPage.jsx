@@ -12,9 +12,11 @@ function LoginPage() {
   };
 
   return (
-    <div className="flex flex-col justify-center items-center mt-4 pt-24 max-w-md mx-auto">
+    <div className="flex flex-col justify-center items-center mt-4 pt-48 max-w-md mx-auto">
       <HeaderSection/>
       <h1 className="text-4xl text-center mb-4 text-indigo-700">Login</h1>
+  
+
       <form className="max-w-mf mx-auto" onSubmit={handleLoginSubmit}>
         <input
           type="email"
@@ -33,6 +35,7 @@ function LoginPage() {
         <button className="bg-indigo-600 hover:bg-indigo-700 p-2 w-full text-white rounded-2xl">
           Login
         </button>
+        
         <div className="text-center py-2 text-gray-500">
           Don't have an account yet?{' '}
           <Link className="underline text-indigo-700" to="/register">
@@ -40,6 +43,7 @@ function LoginPage() {
           </Link>
         </div>
       </form>
+      
     </div>
   );
 }
