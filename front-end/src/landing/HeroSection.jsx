@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Dialog } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
+import { Link } from 'react-router-dom';
 
 const navigation = [
   { name: 'Product', href: '#' },
@@ -44,10 +45,10 @@ export default function HeroSection() {
             ))}
           </div>
           <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-            <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
-              Log in <span aria-hidden="true">&rarr;</span>
-            </a>
-          </div>
+  <Link to="/login" className="text-sm font-semibold leading-6 text-gray-900">
+    Log in <span aria-hidden="true">&rarr;</span>
+  </Link>
+</div>
         </nav>
         <Dialog as="div" className="lg:hidden" open={mobileMenuOpen} onClose={setMobileMenuOpen}>
           <div className="fixed inset-0 z-50" />
