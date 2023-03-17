@@ -9,9 +9,11 @@ const includedFeatures = [
 
 export default function PricingSection() {
   return (
-    <div className="bg-white py-24 sm:py-32">
+    <div className="bg-white py-12">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl sm:text-center">
+        <h2 className="text-base font-semibold leading-7 text-indigo-600 text-center">Plans for flexibility</h2>
+
           <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Simple no-tricks pricing</h2>
           <p className="mt-6 text-lg leading-8 text-gray-600">
             Distinctio et nulla eum soluta et neque labore quibusdam. Saepe et quasi iusto modi velit ut non voluptas
@@ -21,47 +23,33 @@ export default function PricingSection() {
         
         
         <div className="relative isolate px-6 pt-14 lg:px-8">
-  <div className="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80">
-    <svg
-    className="relative left-[calc(50%)] h-[25rem] max-w-none -translate-x-1/2 sm:left-[calc(50%+30rem)] sm:h-[50rem]"
+        <div className="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80">
+  <svg
+    className="relative left-[calc(50%-11rem)] -z-10 h-[15rem] max-w-none -translate-x-1/2 rotate-[30deg] sm:left-[calc(50%-30rem)] sm:h-[30rem]"
     viewBox="0 0 1155 678"
   >
-      <path
-        fill="url(#grad)"
-        fillOpacity=".3"
-        d="M1155 0L-78.208 474.645 0 438.341l558.954 80.634 204.172-286.402c1.307 132.337 45.083 346.658 209.733 145.248C936.936 126.058 882.053-94.234 1031.02 41.331c119.18 108.451 130.68 295.337 121.53 375.223L855 299l21.173 362.054-558.954-142.079z"
-      />
-      <defs>
-        <linearGradient
-          id="grad"
-          x1="1155.49"
-          x2="-78.208"
-          y1=".177"
-          y2="474.645"
-          gradientUnits="userSpaceOnUse"
-        >
-          <stop stopColor="#3C7CB7" />
-          <stop offset={1} stopColor="#2962A3" />
-        </linearGradient>
-      </defs>
-    </svg>
-  </div>
+    <path
+      fill="url(#pattern2)"
+      fillOpacity=".2"
+      d="M317.219 518.975L203.852 678 0 438.341l317.219 80.634 204.172-286.402c1.307 132.337 45.083 346.658 209.733 145.248C936.936 126.058 882.053-94.234 1031.02 41.331c119.18 108.451 130.68 295.337 121.53 375.223L855 299l21.173 362.054-558.954-142.079z"
+    />
+    <defs>
+      <linearGradient
+        id="pattern2"
+        x1="0%"
+        y1="0%"
+        x2="100%"
+        y2="0%"
+        gradientUnits="userSpaceOnUse"
+      >
+        <stop offset="0%" stopColor="#FF8A65" />
+        <stop offset="100%" stopColor="#FFB04A" />
+      </linearGradient>
+    </defs>
+  </svg>
 </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+</div>
 
 
 
