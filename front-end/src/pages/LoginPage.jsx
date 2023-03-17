@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import HeaderSection from '../landing/HeaderSection';
 
 function LoginPage() {
   const [email, setEmail] = useState('');
@@ -12,6 +13,7 @@ function LoginPage() {
 
   return (
     <div className="flex flex-col justify-center items-center mt-4 pt-24 max-w-md mx-auto">
+      <HeaderSection/>
       <h1 className="text-4xl text-center mb-4 text-indigo-700">Login</h1>
       <form className="max-w-mf mx-auto" onSubmit={handleLoginSubmit}>
         <input
