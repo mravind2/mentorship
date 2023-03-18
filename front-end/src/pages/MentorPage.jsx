@@ -1,13 +1,13 @@
 import Header from "./Header";
 
 
-export default function HomePage(){
+export default function MentorPage(){
     return(
         
         <div>
             <Header/>
             <div>
-                Home
+                Mentors
             </div>
         </div>
     )

@@ -1,13 +1,11 @@
 import Header from "./Header";
 
-
-export default function HomePage(){
+export default function AccountPage(){
     return(
-        
         <div>
             <Header/>
             <div>
-                Home
+                Account Page
             </div>
         </div>
     )

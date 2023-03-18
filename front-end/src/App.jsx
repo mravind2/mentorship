@@ -4,6 +4,8 @@ import LandingPage from './landing/LandingPage';
 import HomePage from './pages/HomePage';
 import LoginPage from './login/LoginPage';
 import RegisterPage from './login/RegisterPage';
+import MentorPage from './pages/MentorPage';
+import AccountPage from './pages/AccountPage';
 
 axios.defaults.baseURL = 'http://localhost:3001'
 
@@ -16,7 +18,8 @@ function App() {
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/home" element={<HomePage />} />
-
+        <Route path="/mentors" element={<MentorPage />} />
+        <Route path="/account" element={<AccountPage />} />
       </Routes>
     </Router>
   );
