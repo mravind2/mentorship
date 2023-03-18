@@ -14,7 +14,7 @@ function LoginPage() {
   return (
     <div className="flex flex-col justify-center items-center mt-4 pt-48 max-w-md mx-auto">
       <HeaderSection/>
-      <h1 className="text-4xl text-center mb-4 text-indigo-700">Login</h1>
+      <h1 className="text-4xl text-center mb-4">Login</h1>
   
 
       <form className="max-w-mf mx-auto" onSubmit={handleLoginSubmit}>
