@@ -1,4 +1,6 @@
+import CompanySection from './CompanySection';
 import CookiesSection from './CookiesSection';
+import FAQSection from './FAQSection';
 import FeaturesSection from './FeaturesSection';
 import FooterSection from './FooterSection';
 import HeaderSection from './HeaderSection';
@@ -14,8 +16,11 @@ function LandingPage() {
       <HeaderSection />
       <HeroSection />   
       <FeaturesSection />
-      <PartnerSection />  
       <PricingSection />
+      <CompanySection />
+      <PartnerSection />  
+      <FAQSection />
+      
       <FooterSection />
       <CookiesSection />
     </div>

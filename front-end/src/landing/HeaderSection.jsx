@@ -4,10 +4,10 @@ import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 import { Link } from 'react-router-dom';
 
 const navigation = [
-  { name: 'Product', href: '#' },
   { name: 'Features', href: '#' },
   { name: 'Marketplace', href: '#' },
   { name: 'Company', href: '#' },
+  { name: 'FAQs', href: '#' },
 ];
 
 export default function HeaderSection() {
