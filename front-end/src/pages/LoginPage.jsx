@@ -1,15 +1,33 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom'; // For version 6
+// import { Link, Redirect } from 'react-router-dom'; // For version 5
 import HeaderSection from '../landing/HeaderSection';
+import axios from 'axios';
+
+
 
 function LoginPage() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-
-  const handleLoginSubmit = (e) => {
+  const [redirect, setRedirect] = useState(false);
+  async function handleLoginSubmit(e) {
     e.preventDefault();
-    // Handle login logic
-  };
+    try {
+      await axios.post('/login', { email, password });
+      alert('Login successful');
+      setRedirect(true);
+    } catch (e) {
+      alert('Login failed');
+    }
+  }
+  
+
+  if (redirect) {
+    return <Navigate to="/home" />; // For version 6
+    // return <Redirect to="/home" />; // For version 5
+  }
+  
+  
 
   return (
     <div className="flex flex-col justify-center items-center mt-4 pt-48 max-w-md mx-auto">
