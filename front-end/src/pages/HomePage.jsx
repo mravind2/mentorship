@@ -1,7 +1,14 @@
+import Header from "./Header";
+
+
 export default function(){
     return(
+        
         <div>
-            Home Page
+            <Header/>
+            <div>
+                Home
+            </div>
         </div>
     )
 }

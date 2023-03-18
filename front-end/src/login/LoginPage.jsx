@@ -14,7 +14,6 @@ function LoginPage() {
     e.preventDefault();
     try {
       await axios.post('/login', { email, password });
-      alert('Login successful');
       setRedirect(true);
     } catch (e) {
       alert('Login failed');
@@ -56,7 +55,7 @@ function LoginPage() {
         
         <div className="text-center py-2 text-gray-500">
           Don't have an account yet?{' '}
-          <Link className="underline text-indigo-700" to="/register">
+          <Link className="underline text-black" to="/register">
             Register now
           </Link>
         </div>
