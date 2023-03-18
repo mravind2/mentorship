@@ -1,4 +1,6 @@
 import { CheckIcon } from '@heroicons/react/20/solid'
+import { Link } from 'react-router-dom';
+
 
 const includedFeatures = [
   'Private forum access',
@@ -87,12 +89,9 @@ export default function PricingSection() {
                   <span className="text-5xl font-bold tracking-tight text-gray-900">$349</span>
                   <span className="text-sm font-semibold leading-6 tracking-wide text-gray-600">USD</span>
                 </p>
-                <a
-                  href="#"
-                  className="mt-10 block w-full rounded-md bg-indigo-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-                >
-                  Get access
-                </a>
+                <Link to={'https://buy.stripe.com/test_dR66ru8cCgA57raaEF'} className="mt-10 block w-full rounded-md bg-indigo-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                >Get access
+                </Link>
                 <p className="mt-6 text-xs leading-5 text-gray-600">
                   Invoices and receipts available for easy company reimbursement
                 </p>
