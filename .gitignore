@@ -1,0 +1,21 @@
+# Node.js dependencies
+node_modules/
+
+
+
+# Compiled files
+dist/
+build/
+
+# Log files
+*.log
+
+# Vite cache and build artifacts
+.vite/
+public/build/
+
+# VSCode settings
+.vscode/
+
+# MongoDB data directory (change this to match your actual directory name)
+/data/db/
