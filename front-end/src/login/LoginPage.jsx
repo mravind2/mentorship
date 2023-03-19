@@ -1,6 +1,5 @@
 import { useState } from 'react';
-import { Link, Navigate } from 'react-router-dom'; // For version 6
-// import { Link, Redirect } from 'react-router-dom'; // For version 5
+import { Link, Navigate } from 'react-router-dom';
 import HeaderSection from '../landing/HeaderSection';
 import axios from 'axios';
 
@@ -14,6 +13,7 @@ function LoginPage() {
     e.preventDefault();
     try {
       await axios.post('/login', { email, password });
+      alert('Login success');
       setRedirect(true);
     } catch (e) {
       alert('Login failed');

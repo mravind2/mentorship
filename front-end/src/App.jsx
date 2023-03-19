@@ -8,6 +8,7 @@ import MentorPage from './pages/MentorPage';
 import AccountPage from './pages/AccountPage';
 
 axios.defaults.baseURL = 'http://localhost:3001'
+axios.defaults.withCredentials = true;
 
 
 function App() {
