@@ -18,7 +18,7 @@ function LoginPage() {
       setUser(data);
       setRedirect(true);
     } catch (e) {
-      alert('Login failesd');
+      alert('Login failed');
     }
   }
   
