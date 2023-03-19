@@ -19,3 +19,6 @@ public/build/
 
 # MongoDB data directory (change this to match your actual directory name)
 /data/db/
+
+.DS_Store
+
