@@ -15,9 +15,10 @@ To get started with this project, follow the steps below:
 2. Navigate to the `front-end` directory and install the necessary dependencies by running the following command:
 
    
-
-    ``` cd front-end 
-       yarn install ```
+    ```
+     cd front-end 
+       yarn install 
+    ````
 
 
 3. Start the front-end development server by running the following command:
