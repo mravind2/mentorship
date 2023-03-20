@@ -88,5 +88,9 @@ app.get('/profile', (req, res) => {
   }
 })
 
+app.post('/api/logout', (req,res) => {
+  res.cookie('token', '').json(true);
+});
+
 
 app.listen(3001);
