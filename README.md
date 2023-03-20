@@ -16,7 +16,7 @@ To get started with this project, follow the steps below:
 
    
     ```
-     cd front-end 
+    cd front-end 
     yarn install 
     ````
 
@@ -32,8 +32,8 @@ To get started with this project, follow the steps below:
    
 
     ```
-        cd back-end
-        yarn install
+    cd back-end
+    yarn install
     ```
 
 
