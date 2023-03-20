@@ -16,8 +16,8 @@ To get started with this project, follow the steps below:
 
    
 
-    ``` cd front-end ```
-    ```   yarn install ```
+    ``` cd front-end 
+       yarn install ```
 
 
 3. Start the front-end development server by running the following command:
