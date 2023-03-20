@@ -9,4 +9,7 @@ export default defineConfig({
       external: ['react-router-dom'],
     },
   },
+  server: {
+    port: 8000,
+  },
 })

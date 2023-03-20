@@ -17,7 +17,7 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(cors({
     credentials: true,
-    origin: 'http://localhost:5173',
+    origin: 'http://localhost:8000',
 }));
 
 mongoose.connect(process.env.MONGO_URL)
@@ -87,6 +87,10 @@ app.get('/profile', (req, res) => {
     res.json(null);
   }
 })
+
+app.post('/api/logout', (req,res) => {
+  res.cookie('token', '').json(true);
+});
 
 
 app.listen(3001);

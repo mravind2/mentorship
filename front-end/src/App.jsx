@@ -22,7 +22,7 @@ function App() {
           <Route path="/login" element={<LoginPage />} />
           <Route path="/home" element={<HomePage />} />
           <Route path="/mentors" element={<MentorPage />} />
-          <Route path="/account" element={<AccountPage />} />
+          <Route path="/account/:subpage?" element={<AccountPage />} />
         </Routes>
       </Router>
     </UserContextProvider>
