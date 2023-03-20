@@ -25,3 +25,27 @@ To get started with this project, follow the steps below:
    
 
     ```yarn run dev```
+
+4. Open a second terminal and navigate to the `back-end` directory. Install the necessary dependencies by running the following command:
+
+   
+
+    ```cd back-end```
+    ```yarn install```
+
+
+5. Start the back-end server by running the following command:
+
+   
+
+    ```node index.js```
+
+    If you encounter any errors with the `yarn install` command, make sure to install all the packages that are imported in the `index.js` file.
+
+## Contributing
+
+If you would like to contribute to this project, feel free to submit a pull request. Please make sure to follow the project's coding standards and guidelines.
+
+## License
+
+This project is licensed under the MIT License. 
