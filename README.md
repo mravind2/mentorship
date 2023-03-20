@@ -17,7 +17,7 @@ To get started with this project, follow the steps below:
    
     ```
      cd front-end 
-       yarn install 
+    yarn install 
     ````
 
 
@@ -31,8 +31,10 @@ To get started with this project, follow the steps below:
 
    
 
-    ```cd back-end```
-    ```yarn install```
+    ```
+        cd back-end
+        yarn install
+    ```
 
 
 5. Start the back-end server by running the following command:
