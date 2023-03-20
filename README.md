@@ -8,7 +8,9 @@ To get started with this project, follow the steps below:
 
 1. Clone the repository by running the following command in your terminal:
 
-   ``` git clone https://github.com/mravind2/mentorship.git ```
+   ``` 
+   git clone https://github.com/mravind2/mentorship.git 
+   ```
 
     Alternatively, you can clone the repository using GitHub Desktop.
 
@@ -25,7 +27,9 @@ To get started with this project, follow the steps below:
 
    
 
-    ```yarn run dev```
+    ```
+    yarn run dev
+    ```
 
 4. Open a second terminal and navigate to the `back-end` directory. Install the necessary dependencies by running the following command:
 
@@ -41,7 +45,9 @@ To get started with this project, follow the steps below:
 
    
 
-    ```node index.js```
+    ```
+    node index.js
+    ```
 
     If you encounter any errors with the `yarn install` command, make sure to install all the packages that are imported in the `index.js` file.
 
