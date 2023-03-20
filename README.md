@@ -1,6 +1,6 @@
 # Mentorship Project
 
-This project is designed to provide a platform for mentorship between experienced professionals and beginners in the tech industry. The project is divided into two parts: the front-end and the back-end.
+This project is designed to provide a platform for mentorship between experienced professionals and beginners. The project is divided into two parts: the front-end and the back-end.
 
 ## Getting Started
 
