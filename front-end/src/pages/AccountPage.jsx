@@ -1,10 +1,11 @@
 import axios from "axios";
 import { useContext, useState } from "react";
-import { Navigate, useParams } from "react-router";
+import { Navigate, useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { UserContext } from "../UserContext";
 import Header from "./Header";
 import ProfilePage from "./ProfilePage";
+
 
 export default function AccountPage(){
     const {ready, user ,setUser} = useContext(UserContext);

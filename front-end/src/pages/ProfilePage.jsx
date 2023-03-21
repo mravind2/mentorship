@@ -1,6 +1,5 @@
 import { useContext, useState } from "react";
-import { useParams } from "react-router"
-import { Link } from "react-router-dom"
+import { useParams, Link } from "react-router-dom";
 import { UserContext } from "../UserContext";
 
 export default function ProfilePage(){
