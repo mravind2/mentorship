@@ -18,13 +18,19 @@ The following technologies are used in this project:
 
 ## Getting Started
 
+Make sure you have yarn installed first:
+```
+npm install --global yarn
+yarn --version
+```
+
 To get started with this project, follow the steps below:
 
 1. Clone the repository by running the following command in your terminal:
 
-   ``` 
-   git clone https://github.com/mravind2/mentorship.git 
-   ```
+``` 
+git clone https://github.com/mravind2/mentorship.git 
+```
  
  Alternatively, you can clone the repository using GitHub Desktop.
 
