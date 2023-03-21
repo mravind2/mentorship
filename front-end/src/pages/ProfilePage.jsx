@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { useParams } from "react-router"
 import { Link } from "react-router-dom"
 import { UserContext } from "../UserContext";
@@ -6,6 +6,12 @@ import { UserContext } from "../UserContext";
 export default function ProfilePage(){
     const {action} = useParams()
     const {user} = useContext(UserContext);
+    const [name,setName] = useState('');
+    const [email,setEmail] = useState('');
+    const [linkedin,setLinkedin] = useState('');
+    const [description,setDescription] = useState('');
+    const [addedPhotos,setAddedPhotos] = useState([]);
+
     return(
         <div>
             {action !=='edit' &&(
@@ -20,13 +26,23 @@ export default function ProfilePage(){
             </div>
             )}
             {action === 'edit' && (
-                <div>
+                <div className="px-4">
                     <form className="flex flex-col">
                         <input type="text" placeholder={user?.name} className="p-4 border mb-4 rounded-full"/>
+                        <input type="text" placeholder={user?.email} className="p-4 border mb-4 rounded-full"/>
+                        <input type="text" placeholder="LinkedIn URL" className="p-4 border mb-4 rounded-full"/>
+                        <textarea type="text" className="mb-4 w-full border my-1 py-2 px-3 rounded-2xl" placeholder="Tell us about yourself"/>
+                        <button className="border bg-transparent rounded-2xl p-8 text-2xl flex justify-center items-center gap-1">                            
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+                                <path strokeLinecap="round" strokeLinejoin="round" d="M12 16.5V9.75m0 0l3 3m-3-3l-3 3M6.75 19.5a4.5 4.5 0 01-1.41-8.775 5.25 5.25 0 0110.233-2.33 3 3 0 013.758 3.848A3.752 3.752 0 0118 19.5H6.75z" />
+                            </svg>
+                            Upload
+                        </button>
+                        <button className="bg-indigo-600 text-white py-2 mt-4 rounded-full">Save</button>
+
                     </form>
                 </div>
             )}
-            My profile
         </div>
     )
 }
