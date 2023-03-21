@@ -23,6 +23,8 @@ function App() {
           <Route path="/home" element={<HomePage />} />
           <Route path="/mentors" element={<MentorPage />} />
           <Route path="/account/:subpage?" element={<AccountPage />} />
+          <Route path="/account/:subpage/:action" element={<AccountPage />} />
+
         </Routes>
       </Router>
     </UserContextProvider>
