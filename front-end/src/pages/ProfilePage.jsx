@@ -1,10 +1,14 @@
+import { useContext } from "react";
 import { useParams } from "react-router"
 import { Link } from "react-router-dom"
+import { UserContext } from "../UserContext";
 
 export default function ProfilePage(){
     const {action} = useParams()
+    const {user} = useContext(UserContext);
     return(
         <div>
+            {action !=='edit' &&(
             <div className="text-center">
                 <Link className="inline-flex bg-indigo-600 gap-1 text-white py-2 px-6 rounded-full" to={'/account/profile/edit'}>
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
@@ -14,6 +18,14 @@ export default function ProfilePage(){
 
                 </Link>
             </div>
+            )}
+            {action === 'edit' && (
+                <div>
+                    <form className="flex flex-col">
+                        <input type="text" placeholder={user?.name} className="p-4 border mb-4 rounded-full"/>
+                    </form>
+                </div>
+            )}
             My profile
         </div>
     )
