@@ -1,5 +1,6 @@
+import './App.css'
 import axios from 'axios';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import LandingPage from './landing/LandingPage';
 import HomePage from './pages/HomePage';
 import LoginPage from './login/LoginPage';
@@ -15,7 +16,6 @@ axios.defaults.withCredentials = true;
 function App() {
   return (
     <UserContextProvider>
-      <Router>
         <Routes>
           <Route path="/" element={<LandingPage />} />
           <Route path="/register" element={<RegisterPage />} />
@@ -26,7 +26,6 @@ function App() {
           <Route path="/account/:subpage/:action" element={<AccountPage />} />
 
         </Routes>
-      </Router>
     </UserContextProvider>
   );
 }
