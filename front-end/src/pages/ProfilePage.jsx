@@ -44,11 +44,11 @@ export default function ProfilePage(){
                         {preInput('Name')}
                         <input type="text" value={name} onChange={ev => setName(ev.target.value)} placeholder={user?.name} className="p-4 border mb-4 rounded-full"/>
                         {preInput('Email')}
-                        <input type="text" value={email} onChange={ev => setEmail(ev.target.value)} placeholder={user?.name} placeholder={user?.email} className="p-4 border mb-4 rounded-full"/>
+                        <input type="text" value={email} onChange={ev => setEmail(ev.target.value)} placeholder={user?.email} className="p-4 border mb-4 rounded-full"/>
                         {preInput('LinkedIn URL')}
-                        <input type="text" value={linkedin} onChange={ev => setLinkedin(ev.target.value)} placeholder={user?.name} placeholder="https://www.linkedin.com/in/yourprofile/" className="p-4 border mb-4 rounded-full"/>
+                        <input type="text" value={linkedin} onChange={ev => setLinkedin(ev.target.value)} placeholder="https://www.linkedin.com/in/yourprofile/" className="p-4 border mb-4 rounded-full"/>
                         {preInput('Description')}
-                        <textarea type="text" value={description} onChange={ev => setDescription(ev.target.value)} placeholder={user?.name} className="mb-4 w-full border my-1 py-2 px-3 rounded-2xl" placeholder="Tell us about yourself"/>
+                        <textarea value={description} onChange={ev => setDescription(ev.target.value)} placeholder="Tell us about yourself" className="mb-4 w-full border my-1 py-2 px-3 rounded-2xl"></textarea>
                         {preInput('Photos')}
                         <label className="cursor-pointer border bg-transparent rounded-2xl p-8 text-2xl flex justify-center items-center gap-1">
                             <input type="file" className="hidden"/>                            
