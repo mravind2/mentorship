@@ -7,10 +7,16 @@ const User = require('./models/User.js');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const cookieParser = require('cookie-parser');
+const rateLimit = require('express-rate-limit');
+
+const limiter = rateLimit({
+  windowMs: 15 * 60 * 1000, // 15 minutes
+  max: 100 // limit each IP to 100 requests per windowMs
+});
 
 
 const bcryptSalt = bcrypt.genSaltSync(10); 
-const jwtSecret = 'werwierejrhhir';
+const jwtSecret = process.env.JWT_SECRET;
 
 
 app.use(express.json());
@@ -47,9 +53,9 @@ app.post('/register', async (req,res) => {
       }
 });
 
-app.post('/login', async (req, res) => {
+app.post('/login', limiter, async (req, res) => {
   const { email, password } = req.body;
-  const userDoc = await User.findOne({ email });
+  const userDoc = await User.findOne({ email: { $eq: email } });
 
   if (userDoc) {
     const passOk = bcrypt.compareSync(password, userDoc.password);
@@ -75,7 +81,7 @@ app.post('/login', async (req, res) => {
   }
 });
 
-app.get('/profile', (req, res) => {
+app.get('/profile', limiter, (req, res) => {
   const {token} = req.cookies;
   if (token) {
     jwt.verify(token, jwtSecret, {}, async (err, userData) => {
