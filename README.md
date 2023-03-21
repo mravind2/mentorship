@@ -47,20 +47,22 @@ git clone https://github.com/mravind2/mentorship.git
  yarn run dev
  ```
 
-4. Open a second terminal and navigate to the `back-end` directory. Install the necessary dependencies by running the following command:
+4. Navigate to `back-end` directory and make a file called `.env`. Paste the link from discord in this file.
+
+5. Open a second terminal and navigate to the `back-end` directory. Install the necessary dependencies by running the following command:
 
  ```
  cd back-end
  yarn install
  ```
 
-5. Start the back-end server by running the following command:
+6. Start the back-end server by running the following command:
 
  ```
  node index.js
  ```
 
- If you encounter any errors with the `yarn install` command, make sure to install all the packages that are imported in the `index.js` file.
+ If you encounter any errors with the `yarn install` command, make sure to install all the packages that are imported in the `index.js` file. 
 
 ## Contributing
 
