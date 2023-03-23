@@ -4,25 +4,25 @@ const features = [
   {
     name: 'Push to deploy',
     description:
-      'Morbi viverra dui mi arcu sed. Tellus semper adipiscing suspendisse semper morbi. Odio urna massa nunc massa.',
+      'With push to deploy, we can update/maintain our site and avoid downtime with live updates.',
     icon: CloudArrowUpIcon,
   },
   {
     name: 'SSL certificates',
     description:
-      'Sit quis amet rutrum tellus ullamcorper ultricies libero dolor eget. Sem sodales gravida quam turpis enim lacus amet.',
+      'Have peace of mind knowing our site and your info is secure .',
     icon: LockClosedIcon,
   },
   {
     name: 'Simple queues',
     description:
-      'Quisque est vel vulputate cursus. Risus proin diam nunc commodo. Lobortis auctor congue commodo diam neque.',
+      'Secure your mentorship easily with our simplified and fair queueing system.',
     icon: ArrowPathIcon,
   },
   {
     name: 'Advanced security',
     description:
-      'Arcu egestas dolor vel iaculis in ipsum mauris. Tincidunt mattis aliquet hac quis. Id hac maecenas ac donec pharetra eget.',
+      'We use advanced encryption software to ensure your data is secure.',
     icon: FingerPrintIcon,
   },
 ]
@@ -83,7 +83,7 @@ export default function FeaturesSection() {
             ))}
           </dl>
         </div>
-             
+
       </div>
     </div>
   )
