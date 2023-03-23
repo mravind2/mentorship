@@ -8,6 +8,10 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const cookieParser = require('cookie-parser');
 const rateLimit = require('express-rate-limit');
+const fs = require('fs');
+const multer = require('multer');
+
+
 
 const limiter = rateLimit({
   windowMs: 15 * 60 * 1000, // 15 minutes
@@ -21,6 +25,7 @@ const jwtSecret = process.env.JWT_SECRET;
 
 app.use(express.json());
 app.use(cookieParser());
+app.use('/uploads', express.static(__dirname+'/uploads'));
 app.use(cors({
     credentials: true,
     origin: 'http://localhost:8000',
@@ -96,6 +101,21 @@ app.get('/profile', limiter, (req, res) => {
 
 app.post('/api/logout', (req,res) => {
   res.cookie('token', '').json(true);
+});
+
+
+const photosMiddleware = multer({dest:'uploads/'});
+app.post('/upload', photosMiddleware.array('photos', 100), (req, res) => {
+  const uploadedFiles = [];
+  for (let i = 0; i < req.files.length; i++) {
+    const {path, originalname} = req.files[i];
+    const parts = originalname.split('.');
+    const ext = parts [parts.length - 1];
+    const newPath = path + '.' + ext;
+    fs.renameSync (path, newPath);
+    uploadedFiles.push(newPath.replace('uploads/',''));
+  }
+  res.json(uploadedFiles);
 });
 
 
