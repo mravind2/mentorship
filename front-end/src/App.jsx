@@ -8,7 +8,6 @@ import RegisterPage from './login/RegisterPage';
 import MentorPage from './pages/MentorPage';
 import AccountPage from './pages/AccountPage';
 import { UserContextProvider } from './UserContext';
-import HeaderSection from './landing/HeaderSection';
 
 axios.defaults.baseURL = 'http://localhost:3001';
 axios.defaults.withCredentials = true;
@@ -16,7 +15,6 @@ axios.defaults.withCredentials = true;
 function App() {
   return (
     <UserContextProvider>
-      <HeaderSection />
       <Routes>
         <Route path="/" element={<LandingPage />} />
         <Route path="/register" element={<RegisterPage />} />
