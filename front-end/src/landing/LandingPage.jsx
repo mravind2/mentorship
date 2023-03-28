@@ -8,19 +8,26 @@ import HeroSection from './HeroSection';
 import PartnerSection from './PartnerSection';
 import PricingSection from './PricingSection';
 
-
-
 function LandingPage() {
   return (
     <div>
       <HeaderSection />
-      <HeroSection />   
-      <FeaturesSection />
-      <PricingSection />
-      <CompanySection />
-      <PartnerSection />  
-      <FAQSection />
-      
+      <HeroSection />
+      <section id="features">
+        <FeaturesSection />
+      </section>
+      <section id="pricing">
+        <PricingSection />
+      </section>
+      <section id="company">
+        <CompanySection />
+      </section>
+      <section id="partners">
+        <PartnerSection />
+      </section>
+      <section id="faqs">
+        <FAQSection />
+      </section>
       <FooterSection />
       <CookiesSection />
     </div>
