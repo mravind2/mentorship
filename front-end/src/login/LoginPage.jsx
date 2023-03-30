@@ -37,6 +37,13 @@ function LoginPage() {
   
 
       <form className="max-w-mf mx-auto" onSubmit={handleLoginSubmit}>
+      <label class="relative inline-flex items-center cursor-pointer">
+        <input type="checkbox" class="sr-only peer" />
+        <span class="mr-2 text-gray-700 dark:text-gray-300">Mentee</span>
+        <div class="w-12 h-6 rounded-full bg-gray-300 peer-checked:bg-indigo-500 peer-checked:translate-x-full transition duration-300 ease-in-out"></div>
+        <span class="ml-2 text-gray-700 dark:text-gray-300">Mentor</span>
+      </label>
+ 
         <input
           type="email"
           placeholder="Email"
@@ -55,6 +62,8 @@ function LoginPage() {
           Login
         </button>
         
+
+        
         <div className="text-center py-2 text-gray-500">
           Don't have an account yet?{' '}
           <Link className="underline text-black" to="/register">
@@ -62,7 +71,7 @@ function LoginPage() {
           </Link>
         </div>
       </form>
-      
+  
     </div>
   );
 }
