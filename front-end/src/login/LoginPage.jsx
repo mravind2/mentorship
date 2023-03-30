@@ -37,7 +37,7 @@ function LoginPage() {
       <h1 className="text-4xl text-center mb-4">Login</h1>
   
 
-      <form className="max-w-mf mx-auto" onSubmit={handleLoginSubmit}>
+      <form className="max-w-mf mx-auto " onSubmit={handleLoginSubmit}>
 
         <input
           type="email"
@@ -53,7 +53,7 @@ function LoginPage() {
           onChange={(ev) => setPassword(ev.target.value)}
           className="w-full border my-1 py-2 px-3 rounded-2xl"
         />
-        <div class="flex items-center">
+        <div class="flex items-center justify-center py-2">
           <span class="text-gray-700 font-medium">Mentee</span>
           <label for="toggle" class="flex items-center ml-2 cursor-pointer">
             <div class="relative">
