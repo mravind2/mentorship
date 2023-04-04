@@ -69,7 +69,7 @@ function LoginPage() {
               <div class="dot absolute left-1 top-1 bg-white w-6 h-6 rounded-full transition"></div>
             </div>
           </label>
-          <span class="ml-2 text-gray-700 font-medium">Mentee</span>
+          <span class="ml-2 text-gray-700 font-medium">Mentor</span>
         </div>
         <button className="bg-indigo-600 hover:bg-indigo-700 p-2 w-full text-white rounded-2xl">
           Login
