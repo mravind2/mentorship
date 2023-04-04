@@ -5,6 +5,7 @@ import FeaturesSection from './FeaturesSection';
 import FooterSection from './FooterSection';
 import HeaderSection from './HeaderSection';
 import HeroSection from './HeroSection';
+import NewsletterSection from './NewsletterSection';
 import PartnerSection from './PartnerSection';
 import PricingSection from './PricingSection';
 
@@ -28,6 +29,7 @@ function LandingPage() {
       <section id="faqs">
         <FAQSection />
       </section>
+      <NewsletterSection />
       <FooterSection />
       <CookiesSection />
     </div>
