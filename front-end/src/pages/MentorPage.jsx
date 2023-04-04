@@ -23,19 +23,19 @@ const mentorList = [
     image: "mentor5.jpg",
   },
   {
-    name: "Mentor 6",
+    name: "Jane Doe",
     image: "mentor6.jpg",
   },
   {
-    name: "Mentor 7",
+    name: "Adam Smith",
     image: "mentor7.jpg",
   },
   {
-    name: "Mentor 8",
+    name: "John Adams",
     image: "mentor8.jpg",
   },
   {
-    name: "Mentor 9",
+    name: "Cool Dude",
     image: "mentor9.jpg",
   }
 ];
@@ -45,8 +45,7 @@ export default function MentorSelect() {
     <div>
       <Header />
       <style>
-        {`
-      
+      {`
           .mentor-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -55,17 +54,40 @@ export default function MentorSelect() {
             max-width: 800px;
           }
 
-          .connect-button {
+          .mentor-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
             padding: 10px;
-            background-color: #0077cc;
+            background-color: #f5f5f5;
+            border-radius: 4px;
+          }
+
+          .mentor-item img {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 10px;
+          }
+
+          .mentor-label {
+            font-weight: bold;
+            margin-bottom: 10px;
+          }
+
+          .connect-button {
+            width: 100%;
+            padding: 10px;
+            background-color: #8E24AA;
             color: #fff;
             border: none;
             border-radius: 4px;
             cursor: pointer;
+            transition: background-color 0.3s ease;
           }
 
           .connect-button:hover {
-            background-color: #005fa3;
+            background-color: #CBC3E3;
           }
         `}
       </style>
@@ -80,15 +102,4 @@ export default function MentorSelect() {
       </div>
     </div>
   );
-}
-
-
-export default function MentorPage(){
-    return(
-        
-        <div>
-            <Header/>
-            
-        </div>
-    )
 }
