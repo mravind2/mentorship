@@ -1,3 +1,4 @@
+import ChatIcon from './ChatIcon';
 import CompanySection from './CompanySection';
 import CookiesSection from './CookiesSection';
 import FAQSection from './FAQSection';
@@ -28,6 +29,11 @@ function LandingPage() {
       <section id="faqs">
         <FAQSection />
       </section>
+<<<<<<< Updated upstream
+=======
+      <ChatIcon />
+      <NewsletterSection />
+>>>>>>> Stashed changes
       <FooterSection />
       <CookiesSection />
     </div>
