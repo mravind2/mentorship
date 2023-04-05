@@ -77,7 +77,7 @@ function RegisterPage() {
         <button className="bg-indigo-600 hover:bg-indigo-700 p-2 w-full text-white rounded-2xl">
           Register
         </button>
-        <div className="text-center py-2 text-gray-500">
+        <div className="text-center py-2 text-gray-600">
           Already a member?{' '}
           <Link className="underline text-black" to={'/login'}>
             Login

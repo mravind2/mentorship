@@ -1,29 +1,47 @@
-export default function ToggleLogin(){
-  function handleToggle() {
-    const toggle = document.getElementById('toggle');
-    const dot = document.querySelector('.dot');
-    if (toggle.checked) {
-      dot.style.transform = 'translateX(100%)';
-    } else {
-      dot.style.transform = 'translateX(0%)';
-    }
-  }
-    return(
-        <div class="flex items-center justify-center py-4">
-          <span class="text-gray-700 font-medium">Mentee</span>
-          <label for="toggle" class="flex items-center ml-2 cursor-pointer">
-            <div class="relative">
-              <input
-                id="toggle"
-                type="checkbox"
-                class="sr-only"
-                onClick={handleToggle}
-              />
-              <div class="block bg-gray-600 w-14 h-8 rounded-full"></div>
-              <div class="dot absolute left-1 top-1 bg-white w-6 h-6 rounded-full transition"></div>
-            </div>
-          </label>
-          <span class="ml-2 text-gray-700 font-medium">Mentor</span>
-        </div>
-    )
+import { useState } from 'react';
+
+export default function ToggleLogin() {
+  const [selectedAccountType, setSelectedAccountType] = useState('mentee');
+
+  const handleAccountTypeChange = (accountType) => {
+    setSelectedAccountType(accountType);
+  };
+
+  return (
+    <div className="flex items-center justify-center">
+      <button
+        type="button"
+        className={`${
+          selectedAccountType === 'mentee'
+            ? 'bg-indigo-600 text-white'
+            : 'bg-gray-200 text-gray-600'
+        } flex items-center justify-center px-4 py-2 text-sm font-medium rounded-l-md focus:outline-none transition duration-200`}
+        onClick={() => handleAccountTypeChange('mentee')}
+      >
+        Mentee
+      </button>
+      <button
+        type="button"
+        className={`${
+          selectedAccountType === 'mentor'
+            ? 'bg-indigo-600 text-white'
+            : 'bg-gray-200 text-gray-600'
+        } flex items-center justify-center px-4 py-2 text-sm font-medium focus:outline-none transition duration-200`}
+        onClick={() => handleAccountTypeChange('mentor')}
+      >
+        Mentor
+      </button>
+      <button
+        type="button"
+        className={`${
+          selectedAccountType === 'company'
+            ? 'bg-indigo-600 text-white'
+            : 'bg-gray-200 text-gray-600'
+        } flex items-center justify-center px-4 py-2 text-sm font-medium rounded-r-md focus:outline-none transition duration-200`}
+        onClick={() => handleAccountTypeChange('company')}
+      >
+        Company
+      </button>
+    </div>
+  );
 }

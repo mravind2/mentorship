@@ -5,7 +5,7 @@ import axios from 'axios';
 import { UserContext } from '../UserContext';
 import ToggleLogin from './ToggleLogin';
 
-function LoginPage() {
+export default function MenteeLogin() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [redirect, setRedirect] = useState(false);
@@ -32,7 +32,7 @@ function LoginPage() {
     <div className="flex flex-col justify-center items-center mt-4 pt-48 max-w-md mx-auto">
       <HeaderSection />
       <ToggleLogin/>
-      <h1 className="text-4xl text-center mb-4">Mentee Login</h1>
+      <h1 className="text-4xl text-center mb-4 mt-8">Mentee Login</h1>
       <form className="max-w-mf mx-auto " onSubmit={handleLoginSubmit}>
         <input
           type="email"
@@ -53,7 +53,7 @@ function LoginPage() {
           Login
         </button>
 
-        <div className="text-center py-2 text-gray-500">
+        <div className="text-center py-2 text-gray-600">
           Don't have an account yet?{' '}
           <Link className="underline text-black" to="/register">
             Register now
@@ -64,4 +64,3 @@ function LoginPage() {
   );
 }
 
-export default LoginPage;
