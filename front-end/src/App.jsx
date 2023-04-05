@@ -9,6 +9,8 @@ import AccountPage from './pages/AccountPage';
 import { UserContextProvider } from './UserContext';
 import NotFound from './landing/NotFound';
 import MenteeLogin from './login/MenteeLogin';
+import MentorLogin from './login/MentorLogin';
+import CompanyLogin from './login/CompanyLogin';
 
 axios.defaults.baseURL = 'http://localhost:3001';
 axios.defaults.withCredentials = true;
@@ -20,6 +22,8 @@ function App() {
         <Route path="/" element={<LandingPage />} />
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/login" element={<MenteeLogin />} />
+        <Route path="/mentor-login" element={<MentorLogin />} />
+        <Route path="/company-login" element={<CompanyLogin />} />
         <Route path="/home" element={<HomePage />} />
         <Route path="/mentors" element={<MentorPage />} />
         <Route path="/account/:subpage?" element={<AccountPage />} />
