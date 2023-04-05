@@ -1,14 +1,12 @@
 import Header from "./Header";
+import MentorBrowsing from "./MentorBrowsing";
 
 
 export default function MentorPage(){
-    return(
-        
+    return(      
         <div>
-            <Header/>
-            <div>
-                Mentors
-            </div>
+            <Header/>    
+            <MentorBrowsing/>
         </div>
     )
 }
