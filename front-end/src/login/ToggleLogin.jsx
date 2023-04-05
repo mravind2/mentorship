@@ -39,7 +39,7 @@ export default function ToggleLogin() {
         type="button"
         className={`${
           selectedAccountType === 'mentee'
-            ? 'bg-indigo-500 text-white'
+            ? 'bg-indigo-600 text-white'
             : 'bg-gray-200 text-gray-600'
         } flex items-center justify-center px-4 py-2 text-sm font-medium rounded-l-md focus:outline-none`}
         onClick={() => handleAccountTypeChange('mentee')}
@@ -50,7 +50,7 @@ export default function ToggleLogin() {
         type="button"
         className={`${
           selectedAccountType === 'mentor'
-            ? 'bg-indigo-500 text-white'
+            ? 'bg-indigo-600 text-white'
             : 'bg-gray-200 text-gray-600'
         } flex items-center justify-center px-4 py-2 text-sm font-medium focus:outline-none`}
         onClick={() => handleAccountTypeChange('mentor')}
@@ -61,7 +61,7 @@ export default function ToggleLogin() {
         type="button"
         className={`${
           selectedAccountType === 'company'
-            ? 'bg-indigo-500 text-white'
+            ? 'bg-indigo-600 text-white'
             : 'bg-gray-200 text-gray-600'
         } flex items-center justify-center px-4 py-2 text-sm font-medium rounded-r-md focus:outline-none`}
         onClick={() => handleAccountTypeChange('company')}
