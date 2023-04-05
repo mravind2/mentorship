@@ -10,4 +10,4 @@ const menteeSchema = new mongoose.Schema({
 
 const menteeModel = mongoose.model('Mentees', menteeSchema);
 
-module.exports = MenteeModel;
+module.exports = menteeModel;
