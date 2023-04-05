@@ -1,19 +1,36 @@
-import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 export default function ToggleLogin() {
-  const [selectedAccountType, setSelectedAccountType] = useState('mentee');
+  const location = useLocation();
   const navigate = useNavigate();
+
+  const getInitialAccountType = () => {
+    if (location.pathname === '/mentor-login') {
+      return 'mentor';
+    } else if (location.pathname === '/login') {
+      return 'mentee';
+    } else if (location.pathname === '/company-login') {
+      return 'company';
+    } else {
+      return 'mentee';
+    }
+  };
+
+  const [selectedAccountType, setSelectedAccountType] = useState(getInitialAccountType());
+
+  useEffect(() => {
+    if (selectedAccountType === 'mentor') {
+      navigate('/mentor-login');
+    } else if (selectedAccountType === 'mentee') {
+      navigate('/login');
+    } else if (selectedAccountType === 'company') {
+      navigate('/company-login');
+    }
+  }, [selectedAccountType, navigate]);
 
   const handleAccountTypeChange = (accountType) => {
     setSelectedAccountType(accountType);
-    if (accountType === 'mentor') {
-      navigate('/mentor-login');
-    } else if (accountType === 'mentee') {
-      navigate('/login');
-    } else if (accountType === 'company') {
-      navigate('/company-login');
-    }
   };
 
   return (
@@ -24,7 +41,7 @@ export default function ToggleLogin() {
           selectedAccountType === 'mentee'
             ? 'bg-indigo-500 text-white'
             : 'bg-gray-200 text-gray-600'
-        } flex items-center justify-center px-4 py-2 text-sm font-medium rounded-l-md focus:outline-none transition duration-200`}
+        } flex items-center justify-center px-4 py-2 text-sm font-medium rounded-l-md focus:outline-none`}
         onClick={() => handleAccountTypeChange('mentee')}
       >
         Mentee
@@ -35,7 +52,7 @@ export default function ToggleLogin() {
           selectedAccountType === 'mentor'
             ? 'bg-indigo-500 text-white'
             : 'bg-gray-200 text-gray-600'
-        } flex items-center justify-center px-4 py-2 text-sm font-medium focus:outline-none transition duration-200`}
+        } flex items-center justify-center px-4 py-2 text-sm font-medium focus:outline-none`}
         onClick={() => handleAccountTypeChange('mentor')}
       >
         Mentor
@@ -46,11 +63,12 @@ export default function ToggleLogin() {
           selectedAccountType === 'company'
             ? 'bg-indigo-500 text-white'
             : 'bg-gray-200 text-gray-600'
-        } flex items-center justify-center px-4 py-2 text-sm font-medium rounded-r-md focus:outline-none transition duration-200`}
+        } flex items-center justify-center px-4 py-2 text-sm font-medium rounded-r-md focus:outline-none`}
         onClick={() => handleAccountTypeChange('company')}
       >
         Company
       </button>
+
     </div>
   );
 }
