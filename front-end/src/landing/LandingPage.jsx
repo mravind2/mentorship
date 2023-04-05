@@ -1,3 +1,4 @@
+import ChatIcon from './ChatIcon';
 import CompanySection from './CompanySection';
 import CookiesSection from './CookiesSection';
 import FAQSection from './FAQSection';
@@ -29,6 +30,7 @@ function LandingPage() {
       <section id="faqs">
         <FAQSection />
       </section>
+      <ChatIcon />
       <NewsletterSection />
       <FooterSection />
       <CookiesSection />
