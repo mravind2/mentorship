@@ -9,10 +9,10 @@ export default function CompanyRegister() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  async function registerUser(ev) {
+  async function registerCompany(ev) {
     ev.preventDefault();
     try {
-      await axios.post('/register', {
+      await axios.post('/company-register', {
         name,
         email,
         password,
@@ -27,8 +27,8 @@ export default function CompanyRegister() {
     <div className="flex flex-col justify-center items-center mt-4 pt-48 max-w-md mx-auto">
       <HeaderSection />
       <ToggleRegister/>
-      <h1 className="text-4xl text-center mb-4 mt-8">Company Registeration</h1>
-      <form className="max-w-md mx-auto" onSubmit={registerUser}>
+      <h1 className="text-4xl text-center mb-4 mt-8">Company Registration</h1>
+      <form className="max-w-md mx-auto" onSubmit={registerCompany}>
         <input
           type="name"
           placeholder="Name"
@@ -64,4 +64,3 @@ export default function CompanyRegister() {
     </div>
   );
 }
-

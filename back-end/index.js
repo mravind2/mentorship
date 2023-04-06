@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 const app = express();
 require('dotenv').config();
 const User = require('./models/User.js');
+const CompanyModel = require('./models/Company.js');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const cookieParser = require('cookie-parser');
@@ -56,6 +57,23 @@ app.post('/register', async (req,res) => {
       } catch (e) {
         res.status(422).json(e);
       }
+});
+
+app.post('/company-register', async (req, res) => {
+  const { name, email, password } = req.body;
+  const salt = bcrypt.genSaltSync(10);
+  const hashedPassword = bcrypt.hashSync(password, salt);
+
+  try {
+    const companyDoc = await CompanyModel.create({
+      name,
+      email,
+      password: hashedPassword,
+    });
+    res.json(companyDoc);
+  } catch (e) {
+    res.status(422).json(e);
+  }
 });
 
 app.post('/login', limiter, async (req, res) => {
