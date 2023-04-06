@@ -14,7 +14,7 @@ export default function CompanyLogin() {
   async function handleLoginSubmit(e) {
     e.preventDefault();
     try {
-      const { data } = await axios.post('/login', { email, password });
+      const { data } = await axios.post('/company-login', { email, password });
       setUser(data);
       setRedirect(true);
     } catch (e) {
@@ -22,10 +22,8 @@ export default function CompanyLogin() {
     }
   }
 
-
-
   if (redirect) {
-    return <Navigate to="/home" />;
+    return <Navigate to="/company-home" />;
   }
 
   return (
@@ -33,7 +31,7 @@ export default function CompanyLogin() {
       <HeaderSection />
       <ToggleLogin/>
       <h1 className="text-4xl text-center mb-4 mt-8">Company Login</h1>
-      <form className="max-w-mf mx-auto " onSubmit={handleLoginSubmit}>
+      <form className="max-w-md mx-auto" onSubmit={handleLoginSubmit}>
         <input
           type="email"
           placeholder="Email"
@@ -55,7 +53,7 @@ export default function CompanyLogin() {
 
         <div className="text-center py-2 text-gray-600">
           Don't have an account yet?{' '}
-          <Link className="underline text-black" to="/register">
+          <Link className="underline text-black" to="/company-register">
             Register now
           </Link>
         </div>
@@ -63,4 +61,3 @@ export default function CompanyLogin() {
     </div>
   );
 }
-

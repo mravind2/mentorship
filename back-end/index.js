@@ -76,6 +76,35 @@ app.post('/company-register', async (req, res) => {
   }
 });
 
+app.post('/company-login', limiter, async (req, res) => {
+  const { email, password } = req.body;
+  const companyDoc = await CompanyModel.findOne({ email: { $eq: email } });
+
+  if (companyDoc) {
+    const passOk = bcrypt.compareSync(password, companyDoc.password);
+
+    if (passOk) {
+      jwt.sign(
+        {
+          email: companyDoc.email,
+          id: companyDoc._id,
+        },
+        jwtSecret,
+        {},
+        (err, token) => {
+          if (err) throw err;
+          res.cookie('token', token).json(companyDoc);
+        }
+      );
+    } else {
+      res.status(401).json({ message: 'Incorrect password' });
+    }
+  } else {
+    res.status(404).json({ message: 'Company not found' });
+  }
+});
+
+
 app.post('/login', limiter, async (req, res) => {
   const { email, password } = req.body;
   const userDoc = await User.findOne({ email: { $eq: email } });
