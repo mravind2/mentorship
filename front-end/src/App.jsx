@@ -11,6 +11,8 @@ import NotFound from './landing/NotFound';
 import MenteeLogin from './login/MenteeLogin';
 import MentorLogin from './login/MentorLogin';
 import CompanyLogin from './login/CompanyLogin';
+import MentorRegister from './login/MentorRegister';
+import CompanyRegister from './login/CompanyRegister';
 
 axios.defaults.baseURL = 'http://localhost:3001';
 axios.defaults.withCredentials = true;
@@ -21,6 +23,8 @@ function App() {
       <Routes>
         <Route path="/" element={<LandingPage />} />
         <Route path="/register" element={<RegisterPage />} />
+        <Route path="/mentor-register" element={<MentorRegister />} />
+        <Route path="/company-register" element={<CompanyRegister />} />
         <Route path="/login" element={<MenteeLogin />} />
         <Route path="/mentor-login" element={<MentorLogin />} />
         <Route path="/company-login" element={<CompanyLogin />} />

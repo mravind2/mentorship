@@ -4,7 +4,7 @@ import HeaderSection from '../landing/HeaderSection';
 import axios from 'axios';
 import ToggleRegister from './ToggleRegister';
 
-export default function RegisterPage() {
+export default function CompanyRegister() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -27,7 +27,7 @@ export default function RegisterPage() {
     <div className="flex flex-col justify-center items-center mt-4 pt-48 max-w-md mx-auto">
       <HeaderSection />
       <ToggleRegister/>
-      <h1 className="text-4xl text-center mb-4 mt-8">Mentee Registeration</h1>
+      <h1 className="text-4xl text-center mb-4 mt-8">Company Registeration</h1>
       <form className="max-w-md mx-auto" onSubmit={registerUser}>
         <input
           type="name"
