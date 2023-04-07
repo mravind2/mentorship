@@ -9,10 +9,10 @@ export default function MentorRegister() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  async function registerUser(ev) {
+  async function registerMentor(ev) {
     ev.preventDefault();
     try {
-      await axios.post('/register', {
+      await axios.post('/mentor-register', {
         name,
         email,
         password,
@@ -28,7 +28,7 @@ export default function MentorRegister() {
       <HeaderSection />
       <ToggleRegister/>
       <h1 className="text-4xl text-center mb-4 mt-8">Mentor Registeration</h1>
-      <form className="max-w-md mx-auto" onSubmit={registerUser}>
+      <form className="max-w-md mx-auto" onSubmit={registerMentor}>
         <input
           type="name"
           placeholder="Name"

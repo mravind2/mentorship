@@ -5,6 +5,7 @@ const app = express();
 require('dotenv').config();
 const User = require('./models/User.js');
 const CompanyModel = require('./models/Company.js');
+const MentorModel = require('./models/Mentor.js')
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const cookieParser = require('cookie-parser');
@@ -104,6 +105,50 @@ app.post('/company-login', limiter, async (req, res) => {
   }
 });
 
+app.post('/mentor-register', async (req, res) => {
+  const { name, email, password } = req.body;
+  const salt = bcrypt.genSaltSync(10);
+  const hashedPassword = bcrypt.hashSync(password, salt);
+
+  try {
+    const mentorDoc = await MentorModel.create({
+      name,
+      email,
+      password: hashedPassword,
+    });
+    res.json(mentorDoc);
+  } catch (e) {
+    res.status(422).json(e);
+  }
+});
+
+app.post('/mentor-login', limiter, async (req, res) => {
+  const { email, password } = req.body;
+  const mentorDoc = await MentorModel.findOne({ email: { $eq: email } });
+
+  if (mentorDoc) {
+    const passOk = bcrypt.compareSync(password, mentorDoc.password);
+
+    if (passOk) {
+      jwt.sign(
+        {
+          email: mentorDoc.email,
+          id: mentorDoc._id,
+        },
+        jwtSecret,
+        {},
+        (err, token) => {
+          if (err) throw err;
+          res.cookie('token', token).json(mentorDoc);
+        }
+      );
+    } else {
+      res.status(401).json({ message: 'Incorrect password' });
+    }
+  } else {
+    res.status(404).json({ message: 'Mentor not found' });
+  }
+});
 
 app.post('/login', limiter, async (req, res) => {
   const { email, password } = req.body;
