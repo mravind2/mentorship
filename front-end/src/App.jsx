@@ -14,6 +14,8 @@ import CompanyLogin from './login/CompanyLogin';
 import MentorRegister from './login/MentorRegister';
 import CompanyRegister from './login/CompanyRegister';
 import CompanyPage from './pages/CompanyHome';
+import MentorHome from './pages/MentorHome';
+
 
 axios.defaults.baseURL = 'http://localhost:3001';
 axios.defaults.withCredentials = true;
@@ -35,6 +37,8 @@ function App() {
         <Route path="/account/:subpage/:action" element={<AccountPage />} />
         <Route path="*" element={<NotFound/>} />
         <Route path="/company-home" element={<CompanyPage />} />
+        <Route path="/mentor-home" element={<MentorHome />} />
+
         {/* The above Route with a path of * will match any path that is not matched by previous routes */}
       </Routes>
     </UserContextProvider>

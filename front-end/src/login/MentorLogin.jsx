@@ -14,7 +14,7 @@ export default function MentorLogin() {
   async function handleLoginSubmit(e) {
     e.preventDefault();
     try {
-      const { data } = await axios.post('/login', { email, password });
+      const { data } = await axios.post('/mentor-login', { email, password });
       setUser(data);
       setRedirect(true);
     } catch (e) {
@@ -25,7 +25,7 @@ export default function MentorLogin() {
 
 
   if (redirect) {
-    return <Navigate to="/home" />;
+    return <Navigate to="/mentor-home" />;
   }
 
   return (
