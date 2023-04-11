@@ -26,11 +26,11 @@ const sortOptions = [
   { name: 'Price: High to Low', href: '#', current: false },
 ]
 const subCategories = [
-  { name: 'Totes', href: '#' },
-  { name: 'Backpacks', href: '#' },
-  { name: 'Travel Bags', href: '#' },
-  { name: 'Hip Bags', href: '#' },
-  { name: 'Laptop Sleeves', href: '#' },
+  { name: 'Project Management', href: '#' },
+  { name: 'Data Analysis', href: '#' },
+  { name: 'Software Development', href: '#' },
+  { name: 'Human Resource Management', href: '#' },
+  { name: 'Construction Mangaement', href: '#' },
 ]
 const filters = [
   {
@@ -182,7 +182,7 @@ export default function FiltersFeature() {
 
         <main className="mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-baseline justify-between border-b border-gray-200 pb-6 pt-24">
-            <h1 className="text-4xl font-bold tracking-tight text-gray-900">New Arrivals</h1>
+            <h1 className="text-4xl font-bold tracking-tight text-gray-900">Meet Our Mentors</h1>
 
             <div className="flex items-center">
               <Menu as="div" className="relative inline-block text-left">
