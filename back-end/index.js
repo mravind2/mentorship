@@ -182,14 +182,30 @@ app.get('/profile', limiter, (req, res) => {
   const {token} = req.cookies;
   if (token) {
     jwt.verify(token, jwtSecret, {}, async (err, userData) => {
-      if (err) throw err;
-      const {name, email, _id} = await User.findById(userData.id);
-      res.json({name, email, _id});
+      if (err) {
+        console.error('Error verifying JWT:', err);
+        return res.status(500).json({ error: 'Error verifying JWT.' });
+      }
+      
+      try {
+        const user = await User.findById(userData.id);
+        
+        if (!user) {
+          return res.status(404).json({ error: 'User not found.' });
+        }
+        
+        const {name, email, _id} = user;
+        res.json({name, email, _id});
+      } catch (error) {
+        console.error('Error fetching user:', error);
+        res.status(500).json({ error: 'Error fetching user.' });
+      }
     });
   } else {
     res.json(null);
   }
-})
+});
+
 
 app.post('/api/logout', (req,res) => {
   res.cookie('token', '').json(true);

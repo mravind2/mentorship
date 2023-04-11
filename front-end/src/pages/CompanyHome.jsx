@@ -1,9 +1,9 @@
-import Header from "./Header";
+import CompanyHeader from "./CompanyHeader";
 
 export default function CompanyPage(){
     return(
         <div>
-            <Header/>
+            <CompanyHeader/>
             This is company dashboard
         </div>
     )

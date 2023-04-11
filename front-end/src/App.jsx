@@ -15,6 +15,7 @@ import MentorRegister from './login/MentorRegister';
 import CompanyRegister from './login/CompanyRegister';
 import CompanyPage from './pages/CompanyHome';
 import MentorHome from './pages/MentorHome';
+import CompanyLogout from './pages/CompanyLogout';
 
 
 axios.defaults.baseURL = 'http://localhost:3001';
@@ -37,6 +38,7 @@ function App() {
         <Route path="/account/:subpage/:action" element={<AccountPage />} />
         <Route path="*" element={<NotFound/>} />
         <Route path="/company-home" element={<CompanyPage />} />
+        <Route path="/company-logout" element={<CompanyLogout />} />
         <Route path="/mentor-home" element={<MentorHome />} />
 
         {/* The above Route with a path of * will match any path that is not matched by previous routes */}
