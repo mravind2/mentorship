@@ -15,68 +15,68 @@
 const products = [
     {
       id: 1,
-      name: 'Earthen Bottle',
+      name: 'Jane Doe',
       href: '#',
-      price: '$48',
-      imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-01.jpg',
+      price: 'Project Management Specialist',
+      imageSrc: 'public/Images/images/social-media-chatting-online-blank-profile-picture-head-and-body-icon-people-standing-icon-grey-background-free-vector.webp',
       imageAlt: 'Tall slender porcelain bottle with natural clay textured body and cork stopper.',
     },
     {
       id: 2,
-      name: 'Nomad Tumbler',
+      name: 'Adam Smith',
       href: '#',
-      price: '$35',
-      imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-02.jpg',
+      price: 'Data Analysis Specialist',
+      imageSrc: 'public/Images/images/features-03-image-02.png',
       imageAlt: 'Olive drab green insulated bottle with flared screw lid and flat top.',
     },
     {
       id: 3,
-      name: 'Focus Paper Refill',
+      name: 'John Adams',
       href: '#',
-      price: '$89',
-      imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-03.jpg',
+      price: 'Construction Manager',
+      imageSrc: 'public/Images/images/social-media-chatting-online-blank-profile-picture-head-and-body-icon-people-standing-icon-grey-background-free-vector.webp',
       imageAlt: 'Person using a pen to cross a task off a productivity paper card.',
     },
     {
       id: 4,
-      name: 'Machined Mechanical Pencil',
+      name: 'Michael Crow',
       href: '#',
-      price: '$35',
-      imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-04.jpg',
+      price: 'President of ASU',
+      imageSrc: 'public/Images/images/mentor2.jpg',
       imageAlt: 'Hand holding black machined steel mechanical pencil with brass tip and top.',
     },
 
     {
       id: 5,
-      name: 'Earthen Bottle',
+      name: 'Coming Soon',
       href: '#',
-      price: '$48',
-      imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-01.jpg',
+      // price: '$48',
+      imageSrc: 'public/Images/images/social-media-chatting-online-blank-profile-picture-head-and-body-icon-people-standing-icon-grey-background-free-vector.webp',
       imageAlt: 'Tall slender porcelain bottle with natural clay textured body and cork stopper.',
     },
     {
       id: 6,
-      name: 'Nomad Tumbler',
+      name: 'Coming Soon',
       href: '#',
-      price: '$35',
-      imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-02.jpg',
+      // price: '$35',
+      imageSrc: 'public/Images/images/social-media-chatting-online-blank-profile-picture-head-and-body-icon-people-standing-icon-grey-background-free-vector.webp',
       imageAlt: 'Olive drab green insulated bottle with flared screw lid and flat top.',
     },
     {
       id: 7,
-      name: 'Focus Paper Refill',
+      name: 'Coming Soon',
       href: '#',
-      price: '$89',
-      imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-03.jpg',
+      // price: '$89',
+      imageSrc: 'public/Images/images/social-media-chatting-online-blank-profile-picture-head-and-body-icon-people-standing-icon-grey-background-free-vector.webp',
       imageAlt: 'Person using a pen to cross a task off a productivity paper card.',
     },
 
       {
         id: 8,
-        name: 'Machined Mechanical Pencil',
+        name: 'Coming Soon',
         href: '#',
-        price: '$35',
-        imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-04.jpg',
+        // price: '$35',
+        imageSrc: 'public/Images/images/social-media-chatting-online-blank-profile-picture-head-and-body-icon-people-standing-icon-grey-background-free-vector.webp',
         imageAlt: 'Hand holding black machined steel mechanical pencil with brass tip and top.',
       },
     // More products...
@@ -95,7 +95,8 @@ const products = [
                   <img
                     src={product.imageSrc}
                     alt={product.imageAlt}
-                    className="h-full w-full object-cover object-center group-hover:opacity-75"
+                    // className="h-full w-full object-cover object-center group-hover:opacity-75"
+                    className="h-full w-full object-contain object-center group-hover:opacity-75 bg-white"
                   />
                 </div>
                 <h3 className="mt-4 text-lg font-medium text-gray-700">{product.name}</h3>

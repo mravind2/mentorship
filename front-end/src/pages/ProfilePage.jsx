@@ -11,6 +11,7 @@ export default function ProfilePage(){
     const [linkedin,setLinkedin] = useState('');
     const [description,setDescription] = useState('');
     const [addedPhotos,setAddedPhotos] = useState([]);
+    const [profilePicture, setProfilePicture] = useState('');
 
     function inputHeader(text) {
         return(
@@ -38,8 +39,12 @@ export default function ProfilePage(){
             const {data:filenames} = response;
             setAddedPhotos(prev => {
                 return [...prev, ...filenames];
-            })
-        })
+            });
+            if (!profilePicture) {
+                setProfilePicture('http://localhost:3001/uploads/' + filenames[0]);
+            }
+        });
+        
     }
 
 
@@ -107,11 +112,15 @@ export default function ProfilePage(){
                             </div>
                         </div>
                         <div className="relative">
-                            <div className="w-48 h-48 bg-indigo-100 mx-auto rounded-full shadow-2xl absolute inset-x-0 top-0 -mt-24 flex items-center justify-center text-indigo-500">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-24 w-24" viewBox="0 0 20 20" fill="currentColor">
-                                    <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd" />
-                                </svg>
-                            </div>
+                        <div className="w-48 h-48 bg-indigo-100 mx-auto rounded-full shadow-2xl absolute inset-x-0 top-0 -mt-24 flex items-center justify-center text-indigo-500">
+                            {profilePicture ? (
+                                <img src={profilePicture} alt="Profile" className="w-48 h-48 rounded-full object-cover" />
+                                    ) : (
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-24 w-24" viewBox="0 0 20 20" fill="currentColor">
+                                        <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd" />
+                                        </svg>
+                                         )}
+                                    </div>
                         </div>
 
                         <div className="space-x-8 flex justify-between mt-32 md:mt-0 md:justify-center">
