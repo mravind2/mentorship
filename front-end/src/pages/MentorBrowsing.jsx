@@ -34,7 +34,7 @@ const products = [
       name: 'John Adams',
       href: '#',
       price: 'Construction Manager',
-      imageSrc: 'public/Images/images/features-03-image-03.png',
+      imageSrc: 'public/Images/images/social-media-chatting-online-blank-profile-picture-head-and-body-icon-people-standing-icon-grey-background-free-vector.webp',
       imageAlt: 'Person using a pen to cross a task off a productivity paper card.',
     },
     {
@@ -95,7 +95,8 @@ const products = [
                   <img
                     src={product.imageSrc}
                     alt={product.imageAlt}
-                    className="h-full w-full object-cover object-center group-hover:opacity-75"
+                    // className="h-full w-full object-cover object-center group-hover:opacity-75"
+                    className="h-full w-full object-contain object-center group-hover:opacity-75 bg-white"
                   />
                 </div>
                 <h3 className="mt-4 text-lg font-medium text-gray-700">{product.name}</h3>
