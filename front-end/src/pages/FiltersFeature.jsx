@@ -34,40 +34,37 @@ const subCategories = [
 ]
 const filters = [
   {
-    id: 'color',
-    name: 'Color',
-    options: [
-      { value: 'white', label: 'White', checked: false },
-      { value: 'beige', label: 'Beige', checked: false },
-      { value: 'blue', label: 'Blue', checked: true },
-      { value: 'brown', label: 'Brown', checked: false },
-      { value: 'green', label: 'Green', checked: false },
-      { value: 'purple', label: 'Purple', checked: false },
-    ],
-  },
-  {
-    id: 'category',
-    name: 'Category',
-    options: [
-      { value: 'new-arrivals', label: 'New Arrivals', checked: false },
-      { value: 'sale', label: 'Sale', checked: false },
-      { value: 'travel', label: 'Travel', checked: true },
-      { value: 'organization', label: 'Organization', checked: false },
-      { value: 'accessories', label: 'Accessories', checked: false },
-    ],
-  },
-  {
-    id: 'size',
-    name: 'Size',
-    options: [
-      { value: '2l', label: '2L', checked: false },
-      { value: '6l', label: '6L', checked: false },
-      { value: '12l', label: '12L', checked: false },
-      { value: '18l', label: '18L', checked: false },
-      { value: '20l', label: '20L', checked: false },
-      { value: '40l', label: '40L', checked: true },
-    ],
-  },
+    
+      id: 'skills',
+      name: 'Skills',
+      options: [
+        { value: 'leadership', label: 'Leadership', checked: false },
+        { value: 'negotiation', label: 'Negotiation', checked: false },
+        { value: 'closing', label: 'Closing', checked: false },
+      ],
+    },
+    {
+      id: 'subject-matter-expertise',
+      name: 'Subject Matter Expertise',
+      options: [
+        { value: 'project-management', label: 'Project Management', checked: false },
+        { value: 'data-analysis', label: 'Data Analysis', checked: false },
+        { value: 'software-development', label: 'Software Development', checked: false },
+        { value: 'human-resource-management', label: 'Human Resource Management', checked: false },
+        { value: 'construction-management', label: 'Construction Management', checked: false },
+      ],
+    },
+    {
+      id: 'years-of-experience',
+      name: 'Years of Experience',
+      options: [
+        { value: '5', label: '5 years', checked: false },
+        { value: '10', label: '10 years', checked: false },
+        { value: '15', label: '15 years', checked: false },
+        { value: '20', label: '20 years', checked: false },
+        { value: '25+', label: '25+ years', checked: false },
+      ],
+    },
 ]
 
 function classNames(...classes) {
