@@ -18,7 +18,7 @@ const products = [
       name: 'Jane Doe',
       href: '#',
       price: 'Project Management Specialist',
-      imageSrc: 'public/Images/images/social-media-chatting-online-blank-profile-picture-head-and-body-icon-people-standing-icon-grey-background-free-vector.webp',
+      imageSrc: 'src/images/social-media-chatting-online-blank-profile-picture-head-and-body-icon-people-standing-icon-grey-background-free-vector.webp',
       imageAlt: 'Tall slender porcelain bottle with natural clay textured body and cork stopper.',
     },
     {
@@ -34,7 +34,7 @@ const products = [
       name: 'John Adams',
       href: '#',
       price: 'Construction Manager',
-      imageSrc: 'public/Images/images/social-media-chatting-online-blank-profile-picture-head-and-body-icon-people-standing-icon-grey-background-free-vector.webp',
+      imageSrc: 'src/images/social-media-chatting-online-blank-profile-picture-head-and-body-icon-people-standing-icon-grey-background-free-vector.webp',
       imageAlt: 'Person using a pen to cross a task off a productivity paper card.',
     },
     {
@@ -42,7 +42,7 @@ const products = [
       name: 'Michael Crow',
       href: '#',
       price: 'President of ASU',
-      imageSrc: 'public/Images/images/mentor2.jpg',
+      imageSrc: 'src/images/mentor2.jpg',
       imageAlt: 'Hand holding black machined steel mechanical pencil with brass tip and top.',
     },
 
@@ -51,7 +51,7 @@ const products = [
       name: 'Coming Soon',
       href: '#',
       // price: '$48',
-      imageSrc: 'public/Images/images/social-media-chatting-online-blank-profile-picture-head-and-body-icon-people-standing-icon-grey-background-free-vector.webp',
+      imageSrc: 'src/images/social-media-chatting-online-blank-profile-picture-head-and-body-icon-people-standing-icon-grey-background-free-vector.webp',
       imageAlt: 'Tall slender porcelain bottle with natural clay textured body and cork stopper.',
     },
     {
@@ -59,7 +59,7 @@ const products = [
       name: 'Coming Soon',
       href: '#',
       // price: '$35',
-      imageSrc: 'public/Images/images/social-media-chatting-online-blank-profile-picture-head-and-body-icon-people-standing-icon-grey-background-free-vector.webp',
+      imageSrc: 'src/images/social-media-chatting-online-blank-profile-picture-head-and-body-icon-people-standing-icon-grey-background-free-vector.webp',
       imageAlt: 'Olive drab green insulated bottle with flared screw lid and flat top.',
     },
     {
@@ -67,7 +67,7 @@ const products = [
       name: 'Coming Soon',
       href: '#',
       // price: '$89',
-      imageSrc: 'public/Images/images/social-media-chatting-online-blank-profile-picture-head-and-body-icon-people-standing-icon-grey-background-free-vector.webp',
+      imageSrc: 'src/images/social-media-chatting-online-blank-profile-picture-head-and-body-icon-people-standing-icon-grey-background-free-vector.webp',
       imageAlt: 'Person using a pen to cross a task off a productivity paper card.',
     },
 
@@ -76,7 +76,7 @@ const products = [
         name: 'Coming Soon',
         href: '#',
         // price: '$35',
-        imageSrc: 'public/Images/images/social-media-chatting-online-blank-profile-picture-head-and-body-icon-people-standing-icon-grey-background-free-vector.webp',
+        imageSrc: 'src/images/social-media-chatting-online-blank-profile-picture-head-and-body-icon-people-standing-icon-grey-background-free-vector.webp',
         imageAlt: 'Hand holding black machined steel mechanical pencil with brass tip and top.',
       },
     // More products...
