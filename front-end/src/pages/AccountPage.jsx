@@ -65,7 +65,7 @@ export default function AccountPage(){
             {subpage === 'session' &&(
                 <div className="text-center max-w-lg mx-auto">
                     Logged in as {user?.name} ({user?.email})<br />
-                    <button onClick={logout} className="bg-indigo-600 hover:bg-indigo-700 p-2 w-full text-white rounded-2xl">Logout</button>
+                    <button onClick={logout} className="bg-indigo-600 hover:bg-indigo-700 p-2 w-full text-white rounded-full">Logout</button>
                 </div>
             )}
             {subpage === 'profile' && (
