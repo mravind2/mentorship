@@ -1,16 +1,26 @@
 import axios from "axios";
-import { useContext } from "react";
+import { useContext, useState } from "react";
+import { Navigate } from "react-router-dom";
 
 import { UserContext } from "../UserContext";
 import CompanyHeader from "./CompanyHeader";
 
 export default function CompanyLogout() {
   const { setUser, user } = useContext(UserContext);
+  const [redirect,setRedirect] = useState(null);
 
   async function logout() {
     axios.post("/logout");
+    setRedirect("/");
     setUser(null);
   }
+
+
+
+if (redirect) {
+    return <Navigate to={redirect} />
+}
+
 
   return (
     <div>
