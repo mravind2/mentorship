@@ -178,8 +178,8 @@ app.post('/login', limiter, async (req, res) => {
   }
 });
 
-app.get('/profile', limiter, (req, res) => {
-  const {token} = req.cookies;
+app.get('/api/profile', limiter, (req, res) => {
+  const { token } = req.cookies;
   if (token) {
     jwt.verify(token, jwtSecret, {}, async (err, userData) => {
       if (err) {
@@ -194,8 +194,8 @@ app.get('/profile', limiter, (req, res) => {
           return res.status(404).json({ error: 'User not found.' });
         }
         
-        const {name, email, _id} = user;
-        res.json({name, email, _id});
+        const { name, email, _id } = user;
+        res.json({ name, email, _id });
       } catch (error) {
         console.error('Error fetching user:', error);
         res.status(500).json({ error: 'Error fetching user.' });
@@ -205,6 +205,18 @@ app.get('/profile', limiter, (req, res) => {
     res.json(null);
   }
 });
+
+
+app.get('/api/mentors', async (req, res) => {
+  try {
+    const mentors = await MentorModel.find();
+    res.json(mentors);
+  } catch (error) {
+    console.error('Error fetching mentors:', error);
+    res.status(500).json({ error: 'Error fetching mentors.' });
+  }
+});
+
 
 
 app.post('/api/logout', (req,res) => {
