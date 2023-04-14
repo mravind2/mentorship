@@ -5,13 +5,15 @@ const app = express();
 require('dotenv').config();
 const User = require('./models/User.js');
 const CompanyModel = require('./models/Company.js');
-const MentorModel = require('./models/Mentor.js')
+const MentorModel = require('./models/Mentor.js');
 const bcrypt = require('bcryptjs');
+const Chat = require('./models/ChatModel');
 const jwt = require('jsonwebtoken');
 const cookieParser = require('cookie-parser');
 const rateLimit = require('express-rate-limit');
 const fs = require('fs');
 const multer = require('multer');
+const chatRoutes = require('./models/chatRoutes');
 
 
 
@@ -32,6 +34,8 @@ app.use(cors({
     credentials: true,
     origin: 'http://localhost:8000',
 }));
+app.use(chatRoutes);
+
 
 mongoose.connect(process.env.MONGO_URL)
   .then(() => {
@@ -40,6 +44,30 @@ mongoose.connect(process.env.MONGO_URL)
   .catch((err) => {
     console.error('Error connecting to MongoDB:', err.message);
   });
+
+app.get('/api/chat', async (req, res) => {
+  try {
+    const messages = await Chat.find().sort({ timestamp: 1 });
+    res.json(messages);
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+});
+
+app.post('/api/chat', async (req, res) => {
+  const newMessage = new Chat({
+    username: req.body.username,
+    message: req.body.message,
+    timestamp: new Date(),
+  });
+
+  try {
+    const savedMessage = await newMessage.save();
+    res.status(201).json(savedMessage);
+  } catch (err) {
+    res.status(400).json({ message: err.message });
+  }
+});
 
 app.get('/test', (req, res) => {
     res.json('test ok')

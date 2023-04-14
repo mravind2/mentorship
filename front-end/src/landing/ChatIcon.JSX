@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import ChatBot from './ChatBot';
+import ChatWindow from './ChatWindow';
 
 function ChatIcon() {
   const [showChat, setShowChat] = useState(false);
@@ -13,7 +13,7 @@ function ChatIcon() {
       <button className="p-4 sm:p-5 lg:p-6 bg-blue-500 text-white rounded-full" onClick={toggleChat}>
         <img src="https://cdn.dribbble.com/users/689802/screenshots/4044319/respage_chatbot_bubbletalk_dribbble.gif" className="h-10 w-10" alt="chat icon" />
       </button>
-      {showChat && <ChatBot onClose={() => setShowChat(false)} />}
+      {showChat && <ChatWindow onClose={() => setShowChat(false)} />}
     </div>
   );
 }
