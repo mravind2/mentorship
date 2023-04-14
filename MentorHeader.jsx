@@ -16,7 +16,7 @@ export default function MentorHeader() {
 
             
               <div className="flex items-center gap-12">
-                <Link to="/home" className="text-sm font-semibold leading-6 text-gray-900">
+                <Link to="/mentor-home" className="text-sm font-semibold leading-6 text-gray-900">
                   Home
                 </Link>
                 <Link to="/mentees" className="text-sm font-semibold leading-6 text-gray-900">
@@ -26,7 +26,7 @@ export default function MentorHeader() {
             
 
             
-            <Link to={'/account'} className="flex items-center gap-2 border border-gray-300 rounded-full py-2 px-4 ">
+              <Link to={'/mentor-logout'} className="flex items-center gap-2 border border-gray-300 rounded-full py-2 px-4 ">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
                 </svg>
