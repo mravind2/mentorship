@@ -22,6 +22,9 @@ export default function Header() {
                 <Link to="/mentors" className="text-sm font-semibold leading-6 text-gray-900">
                   Mentors
                 </Link>
+                <Link to="/notification" className="text-sm font-semibold leading-6 text-gray-900">
+                  Notifications
+                </Link>
               </div>
             
 

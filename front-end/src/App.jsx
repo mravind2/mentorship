@@ -16,6 +16,7 @@ import CompanyRegister from './login/CompanyRegister';
 import CompanyPage from './pages/CompanyHome';
 import MentorHome from './pages/MentorHome';
 import CompanyLogout from './pages/CompanyLogout';
+import Notification from './pages/Notification';
 
 
 axios.defaults.baseURL = 'http://localhost:3001';
@@ -33,6 +34,7 @@ function App() {
         <Route path="/mentor-login" element={<MentorLogin />} />
         <Route path="/company-login" element={<CompanyLogin />} />
         <Route path="/home" element={<HomePage />} />
+        <Route path="/notification" element={<Notification />} />
         <Route path="/mentors" element={<MentorPage />} />
         <Route path="/account/:subpage?" element={<AccountPage />} />
         <Route path="/account/:subpage/:action" element={<AccountPage />} />
