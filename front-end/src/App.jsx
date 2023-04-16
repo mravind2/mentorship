@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import { Route, Routes, Navigate } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import LandingPage from './landing/LandingPage';
 import HomePage from './pages/HomePage';
 import RegisterPage from './login/RegisterPage';
@@ -16,7 +16,7 @@ import CompanyRegister from './login/CompanyRegister';
 import CompanyPage from './pages/CompanyHome';
 import MentorHome from './pages/MentorHome';
 import CompanyLogout from './pages/CompanyLogout';
-
+import MentorProfile from './pages/MentorProfile';
 
 axios.defaults.baseURL = 'http://localhost:3001';
 axios.defaults.withCredentials = true;
@@ -40,8 +40,7 @@ function App() {
         <Route path="/company-home" element={<CompanyPage />} />
         <Route path="/company-logout" element={<CompanyLogout />} />
         <Route path="/mentor-home" element={<MentorHome />} />
-
-        {/* The above Route with a path of * will match any path that is not matched by previous routes */}
+        <Route path="/mentor/:mentorId" element={<MentorProfile />} />
       </Routes>
     </UserContextProvider>
   );
