@@ -23,7 +23,7 @@ export default function MentorBrowsing() {
               <img
                 src={mentor.imageSrc}
                 alt={mentor.imageAlt}
-                className="h-80 w-full object-cover object-center rounded group-hover:opacity-75 bg-white"
+                className="h-80 w-full object-cover object-center group-hover:opacity-75 bg-white"
               />
             </div>
             <h3 className="mt-4 text-lg font-medium text-gray-700">{mentor.name}</h3>
