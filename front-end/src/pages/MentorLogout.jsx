@@ -16,7 +16,7 @@ export default function MentorLogout(){
     }
 
     async function logout() {
-        axios.post("/logout");
+        axios.post("/mentor-logout");
         setRedirect("/");
         setUser(null);
      }
