@@ -33,7 +33,7 @@ export default function MentorAccount(){
 
     
     if (ready && !user && !redirect) {
-        return <Navigate to={'/login'} />
+        return <Navigate to={'/mentor-login'} />
     }
 
     if (redirect) {
