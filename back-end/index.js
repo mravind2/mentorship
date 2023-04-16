@@ -218,7 +218,7 @@ app.get('/api/mentors', async (req, res) => {
 });
 
 // wip
-app.get('/api/mentees', async (req, res) => {
+app.get('/api/mentees', limiter, async (req, res) => {
   try {
     const mentees = await User.find();
     res.json(mentees);
