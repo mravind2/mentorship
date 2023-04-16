@@ -1,9 +1,10 @@
-import Header from "./Header";
+import MentorHeader from "./MentorHeader";
+
 
 export default function MentorHome(){
     return(
         <div>
-            <Header/>
+            <MentorHeader/>
             This is Mentor home
         </div>
     )
