@@ -206,7 +206,7 @@ app.get('/api/profile', limiter, (req, res) => {
   }
 });
 
-app.get('/api/mentor/:id', async (req, res) => {
+app.get('/api/mentor/:id', limiter, async (req, res) => {
   const mentorId = req.params.id;
   try {
     const mentor = await MentorModel.findById(mentorId);
@@ -222,7 +222,7 @@ app.get('/api/mentor/:id', async (req, res) => {
 
 
 
-app.get('/api/mentors', async (req, res) => {
+app.get('/api/mentors', limiter, async (req, res) => {
   try {
     const mentors = await MentorModel.find();
     res.json(mentors);
@@ -256,14 +256,6 @@ app.post('/upload', photosMiddleware.array('photos', 100), (req, res) => {
 
 
 // Other imports and code
-
-const path = require('path');
-
-app.use(express.static(path.join(__dirname, '../front-end/index.html')));
-
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '../front-end/index.html'));
-});
 
 app.listen(3001);
 
