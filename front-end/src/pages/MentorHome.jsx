@@ -1,10 +1,12 @@
-import Header from "./Header";
+import MentorHeader from "./MentorHeader";
+import FeaturesZigZag from './FeaturesZigzag';
+
 
 export default function MentorHome(){
-    return(
+    return(      
         <div>
-            <Header/>
-            This is Mentor home
+            <MentorHeader/>    
+            <FeaturesZigZag />  
         </div>
     )
 }
