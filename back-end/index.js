@@ -232,6 +232,17 @@ app.get('/api/mentors', limiter, async (req, res) => {
   }
 });
 
+// wip
+app.get('/api/mentees', limiter, async (req, res) => {
+  try {
+    const mentees = await User.find();
+    res.json(mentees);
+  } catch (error) {
+    console.error('Error fetching mentees:', error);
+    res.status(500).json({ error: 'Error fetching mentees.' });
+  }
+});
+
 
 
 app.post('/api/logout', (req,res) => {
