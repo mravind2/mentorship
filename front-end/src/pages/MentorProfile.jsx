@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
+import Header from './Header';
 
 const MentorProfile = () => {
   const { mentorId } = useParams();
@@ -21,6 +22,8 @@ const MentorProfile = () => {
 
   return (
     mentor && (
+      <>
+      <Header />    
       <div className="p-16">
         <div className="p-8 bg-white shadow mt-24">
           <div className="grid grid-cols-1 md:grid-cols-3">
@@ -68,7 +71,9 @@ const MentorProfile = () => {
           </div>
         </div>
       </div>
-    ));
+      </>
+      )
+    );
   };        
 export default MentorProfile;
 
