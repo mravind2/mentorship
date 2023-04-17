@@ -12,6 +12,17 @@ export default function MentorProfile(){
     const [description,setDescription] = useState('');
     const [addedPhotos,setAddedPhotos] = useState([]);
     const [profilePicture, setProfilePicture] = useState('');
+import React, { useEffect, useState, useContext } from 'react'; // Add useContext import
+import { useParams } from 'react-router-dom';
+import axios from 'axios';
+import Header from './Header';
+import { UserContext } from '../UserContext'; // Import UserContext
+
+const MentorProfile = () => {
+  const { mentorId } = useParams();
+  const [mentor, setMentor] = useState(null);
+  
+  const { user } = useContext(UserContext); // Access user data using useContext
 
     function inputHeader(text) {
         return(
@@ -46,7 +57,6 @@ export default function MentorProfile(){
         });
         
     }
-
 
 
     return(
