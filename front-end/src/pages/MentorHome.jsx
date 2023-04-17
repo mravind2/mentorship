@@ -1,102 +1,79 @@
-import React, { useState } from "react";
+import React from 'react';
+import MenteeCard from './MenteeCard';
 import MentorHeader from "./MentorHeader"
-import "./MentorHome.css";
 
-import Mentee01 from '../images/mentee-01.png';
-import Mentee02 from '../images/mentee-02.png';
-import Mentee03 from '../images/mentee-03.png';
+import Mentee01 from "../images/mentee-01.png";
+import Mentee02 from "../images/mentee-02.png";
+import Mentee03 from "../images/mentee-03.png";
 
 const MentorHome = () => {
-  const [mentees, setMentees] = useState([
+  const mentees = [
     {
-      name: "Karate Kid",
-      bio: "Please teach me karate.",
-      imgSrc:
-        Mentee01,
+      id: 1,
+      name: 'Karate Kid',
+      photo: Mentee01,
+      description: 'I am interested in web development and UI/UX design.',
     },
     {
-      name: "Luke Skywalker",
-      bio: "I need help learning some space magic.",
-      imgSrc:
-        Mentee02,
+      id: 2,
+      name: 'Luke Skywalker',
+      photo: Mentee02,
+      description: 'I am interested in machine learning and data analysis.',
     },
     {
-      name: "Kung Fu Panda",
-      bio: "I don't even know what I'm doing here",
-      imgSrc:
-        Mentee03,
+      id: 3,
+      name: 'Kung Fu Panda',
+      photo: Mentee03,
+      description: 'I am interested in mobile app development and game design.',
     },
-  ]);
-  const [notifications, setNotifications] = useState([
-    { message: "Sean Wants to connect with you!", isRead: false },
-    { message: "Kelven Sent you a new message!", isRead: false },
-    { message: "Jack wants to connect with you!", isRead: false },
-  ]);
+  ];
 
-  const renderMentees = () => {
-    return mentees.map((mentee, index) => (
-      <div className="mentee" key={mentee.name}>
-        <img src={mentee.imgSrc} alt={`${mentee.name} profile pic`} />
-        <div className="mentee-details">
-          <h3>{mentee.name}</h3>
-          <p>{mentee.bio}</p>
-        </div>
-        <button onClick={() => removeMentee(index)}>Remove</button>
-      </div>
-    ));
-  };
-
-  const removeMentee = (index) => {
-    const updatedMentees = [...mentees];
-    updatedMentees.splice(index, 1);
-    setMentees(updatedMentees);
-  };
-
-  const renderNotifications = () => {
-    return notifications.map((notification, index) => (
-      <div
-        className={`notification ${notification.isRead ? "read" : "unread"}`}
-        key={index}
-        onClick={() => markNotificationAsRead(index)}
-      >
-        {notification.isRead ? (
-          <span className="read-status">Read</span>
-        ) : (
-          <span className="unread-status">Unread</span>
-        )}
-        <p className="notification-message">
-          {notification.isRead ? notification.message : "Click to view"}
-        </p>
-      </div>
-    ));
-  };
-
-  const markNotificationAsRead = (index) => {
-    const updatedNotifications = [...notifications];
-    updatedNotifications[index].isRead = true;
-    setNotifications(updatedNotifications);
-  };
+  const notifications = [
+    {
+      id: 1,
+      message: 'You have a new mentee request.',
+      read: false,
+    },
+    {
+      id: 2,
+      message: 'A mentee has scheduled a meeting with you.',
+      read: false,
+    },
+    {
+      id: 3,
+      message: 'You have a new mentee request.',
+      read: false,
+    },
+  ];
 
   return (
-   <div>
-    <MentorHeader/>
-    <div className="mentor-homepage">
-      <h2>Recommended Mentees</h2>
-      <div className="mentee-container">
-        {renderMentees()}
-        {mentees.length === 0 && <p>No recommended mentees found.</p>}
+    <div>
+        <MentorHeader/>
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <h1 className="text-4xl font-bold text-gray-800 mb-8">Recommended Mentees</h1>
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {mentees.map((mentee) => (
+          <MenteeCard key={mentee.id} mentee={mentee} />
+        ))}
       </div>
-      <h2>Notifications</h2>
-      <div className="notification-container">
-        {renderNotifications()}
-        {notifications.filter((n) => !n.isRead).length === 0 && (
-          <p>No new notifications.</p>
-        )}
+      <div className="mt-12">
+        <h2 className="text-2xl font-bold text-gray-800 mb-4">Notifications</h2>
+        <ul>
+          {notifications.map((notification) => (
+            <li key={notification.id} className={`bg-white shadow rounded-lg mb-4 py-3 px-4 ${notification.read ? 'opacity-50' : 'opacity-100 hover:shadow-lg transition duration-300 ease-in-out'}`}>
+              <div className="flex items-center justify-between">
+                <div className="text-lg font-medium text-gray-900">{notification.message}</div>
+                <div className={`text-sm font-medium ${notification.read ? 'text-green-500' : 'text-red-500'}`}>
+                  {notification.read ? 'Read' : 'Unread'}
+                </div>
+              </div>
+            </li>
+          ))}
+        </ul>
       </div>
     </div>
-   </div>
+    </div>
   );
 };
 
 export default MentorHome;
-
