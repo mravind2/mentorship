@@ -1,11 +1,14 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react'; // Add useContext import
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import Header from './Header';
+import { UserContext } from '../UserContext'; // Import UserContext
 
 const MentorProfile = () => {
   const { mentorId } = useParams();
   const [mentor, setMentor] = useState(null);
+  
+  const { user } = useContext(UserContext); // Access user data using useContext
 
   useEffect(() => {
     const fetchMentor = async () => {
@@ -19,6 +22,8 @@ const MentorProfile = () => {
 
     fetchMentor();
   }, [mentorId]);
+
+  console.log('Logged-in user:', user); // Log the user data
 
   return (
     mentor && (
