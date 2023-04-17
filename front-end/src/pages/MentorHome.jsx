@@ -1,4 +1,4 @@
-import Header from "./Header";
+import Header from "./MentorHeader";
 
 export default function MentorHome(){
     return(
