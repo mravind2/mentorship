@@ -1,8 +1,12 @@
+import mark from '../images/avatar-nathan-peterson.webp';
+import angela from '../images/avatar-angela-gray.webp';
+import jacob from '../images/avatar-jacob-thompson.webp';
+import rizky from '../images/avatar-rizky-hasanuddin.webp';
 export const notificationsData = [
   {
     id: 1,
     isRead: false,
-    avatar: "../images/avatar-mark-webber.webp",
+    avatar: mark,
     name: "Mark Webber",
     action: "reacted to your recent post",
     activity: "My first tournament today!",
@@ -12,7 +16,7 @@ export const notificationsData = [
   {
     id: 2,
     isRead: false,
-    avatar: "../images/avatar-angela-gray.webp",
+    avatar:  angela,
     name: "Angela Gray",
     action: "followed you",
     isFollow: true,
@@ -21,7 +25,7 @@ export const notificationsData = [
   {
     id: 3,
     isRead: false,
-    avatar: "../images/avatar-jacob-thompson.webp",
+    avatar:  jacob,
     name: "Jacob Thompson",
     action: "has joined your group",
     activity: "Chess Club",
@@ -31,11 +35,11 @@ export const notificationsData = [
   {
     id: 4,
     isRead: true,
-    avatar: "../images/avatar-rizky-hasanuddin.webp",
+    avatar: rizky,
     name: "Rizky Hasanuddin",
     action: "sent you a private message",
     message:
-      "Hello, thanks for setting up the Chess Club. I've been a member for a few weeks now and I'm already having lots of fun and improving my game.",
+      "Hello, I am trying to set up a meeting with you.",
     isMessage: true,
     date: "5 days ago",
   },

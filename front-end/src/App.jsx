@@ -15,47 +15,20 @@ import CompanyRegister from './login/CompanyRegister';
 import CompanyPage from './pages/CompanyHome';
 import MentorHome from './pages/MentorHome';
 import CompanyLogout from './pages/CompanyLogout';
-<<<<<<< HEAD
-import Notification from './pages/Notification';
-
-=======
 import MentorProfile from './pages/MentorProfile';
->>>>>>> 3f873e82a99e14c9caf053500f1087bbf119120e
+import Notification from './pages/Notification';
 
 axios.defaults.baseURL = 'http://localhost:3001';
 axios.defaults.withCredentials = true;
 
 function App() {
   return (
-<<<<<<< HEAD
-    <UserContextProvider>
-      <Routes>
-        <Route path="/" element={<LandingPage />} />
-        <Route path="/register" element={<RegisterPage />} />
-        <Route path="/mentor-register" element={<MentorRegister />} />
-        <Route path="/company-register" element={<CompanyRegister />} />
-        <Route path="/login" element={<MenteeLogin />} />
-        <Route path="/mentor-login" element={<MentorLogin />} />
-        <Route path="/company-login" element={<CompanyLogin />} />
-        <Route path="/home" element={<HomePage />} />
-        <Route path="/notification" element={<Notification />} />
-        <Route path="/mentors" element={<MentorPage />} />
-        <Route path="/account/:subpage?" element={<AccountPage />} />
-        <Route path="/account/:subpage/:action" element={<AccountPage />} />
-        <Route path="*" element={<NotFound/>} />
-        <Route path="/company-home" element={<CompanyPage />} />
-        <Route path="/company-logout" element={<CompanyLogout />} />
-        <Route path="/mentor-home" element={<MentorHome />} />
-
-        {/* The above Route with a path of * will match any path that is not matched by previous routes */}
-      </Routes>
-    </UserContextProvider>
-=======
     <Routes>
       <Route path="/" element={<LandingPage />} />
       <Route path="/register" element={<RegisterPage />} />
       <Route path="/mentor-register" element={<MentorRegister />} />
       <Route path="/company-register" element={<CompanyRegister />} />
+      <Route path="/notification" element={<Notification />} />
       <Route path="/login" element={<MenteeLogin />} />
       <Route path="/mentor-login" element={<MentorLogin />} />
       <Route path="/company-login" element={<CompanyLogin />} />
@@ -69,7 +42,6 @@ function App() {
       <Route path="/mentor-home" element={<MentorHome />} />
       <Route path="/mentor/:mentorId" element={<MentorProfile />} />
     </Routes>
->>>>>>> 3f873e82a99e14c9caf053500f1087bbf119120e
   );
 }
 

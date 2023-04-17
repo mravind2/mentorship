@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import EachNotif from "./EachNotif";
 import { notificationsData } from "../data/data";
+import Header from './Header';
+import Navbar from './Navbar';
 
 const Notification = () => {
   const [notifications, setNotifications] = useState(notificationsData);
@@ -29,7 +31,9 @@ const Notification = () => {
   };
 
   return (
+    
     <div className="mx-auto my-8 grid max-w-[720px] gap-8 rounded-lg bg-white p-8">
+      <Header/> 
       <nav className="flex justify-between">
         <div className="flex items-center gap-2">
           <h1 className=" text-2xl font-extrabold">Notifications</h1>
@@ -37,6 +41,7 @@ const Notification = () => {
             {notifLength}
           </span>
         </div>
+        
         <button className=" text-blue-dark-grayish" onClick={allRead}>
           Mark all as read
         </button>
@@ -46,6 +51,7 @@ const Notification = () => {
           <EachNotif key={el.id} el={el} handleRead={handleRead} />
         ))}
       </div>
+      <Navbar />
     </div>
   );
 };
