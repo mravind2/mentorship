@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import { Route, Routes, Navigate } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import LandingPage from './landing/LandingPage';
 import HomePage from './pages/HomePage';
 import RegisterPage from './login/RegisterPage';
@@ -20,7 +20,6 @@ import MentorProfile from './pages/MentorProfile'
 import MentorLogout from './pages/MentorLogout'
 import MenteeBrowsing from './pages/MenteeBrowsing'
 import MentorAccount from './pages/MentorAccount'
-
 
 axios.defaults.baseURL = 'http://localhost:3001';
 axios.defaults.withCredentials = true;
@@ -52,6 +51,7 @@ function App() {
         <Route path="/mentee-browsing" element={<MenteeBrowsing />} />
 
         {/* The above Route with a path of * will match any path that is not matched by previous routes */}
+        <Route path="/mentor/:mentorId" element={<MentorProfile />} />
       </Routes>
     </UserContextProvider>
   );
