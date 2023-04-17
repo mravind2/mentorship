@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { Route, Routes, Navigate } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import LandingPage from './landing/LandingPage';
 import HomePage from './pages/HomePage';
 import RegisterPage from './login/RegisterPage';
@@ -20,12 +20,22 @@ import MentorProfile from './pages/MentorProfile'
 import MentorLogout from './pages/MentorLogout'
 import MenteeBrowsing from './pages/MenteeBrowsing'
 import MentorAccount from './pages/MentorAccount'
-
+import Chat from './landing/Chat';
 
 axios.defaults.baseURL = 'http://localhost:3001';
 axios.defaults.withCredentials = true;
 
 function App() {
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    axios.get('/api/user').then(res => {
+      setUser(res.data);
+    }).catch(() => {
+      setUser(null);
+    });
+  }, []);
+
   return (
     <UserContextProvider>
       <Routes>
@@ -50,8 +60,7 @@ function App() {
         <Route path="/mentor-account/:subpage?" element={<MentorAccount />} />
         <Route path="/mentor-account/:subpage/:action" element={<MentorAccount />} />
         <Route path="/mentee-browsing" element={<MenteeBrowsing />} />
-
-        {/* The above Route with a path of * will match any path that is not matched by previous routes */}
+        {user && <Route path="/chat" element={<Chat user={user} />} />}
       </Routes>
     </UserContextProvider>
   );

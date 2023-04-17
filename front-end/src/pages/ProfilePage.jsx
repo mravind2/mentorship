@@ -122,13 +122,12 @@ export default function ProfilePage(){
                                          )}
                                     </div>
                         </div>
-
                         <div className="space-x-8 flex justify-between mt-32 md:mt-0 md:justify-center">
                             <button className="inline-flex bg-indigo-600 gap-1 text-white py-3 px-6 rounded-full">
                                 Connect
                             </button>
                             <button className="inline-flex bg-indigo-600 gap-1 text-white py-3 px-6 rounded-full">
-                                Message
+                            <Link to="/landing/Chat">Message</Link>                            
                             </button>
                         </div>
                     </div>

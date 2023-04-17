@@ -12,7 +12,8 @@ const cookieParser = require('cookie-parser');
 const rateLimit = require('express-rate-limit');
 const fs = require('fs');
 const multer = require('multer');
-
+const cors = require('cors');
+const bodyParser = require('body-parser');
 
 
 const limiter = rateLimit({
@@ -24,7 +25,19 @@ const limiter = rateLimit({
 const bcryptSalt = bcrypt.genSaltSync(10); 
 const jwtSecret = process.env.JWT_SECRET;
 
+const messageSchema = new mongoose.Schema({
+  content: String,
+  sender: String,
+});
 
+const Message = mongoose.model('Message', messageSchema);
+
+app.get('/messages', async (req, res) => {
+  const messages = await Message.find({});
+  res.json(messages);
+});
+
+app.use(bodyParser.json());
 app.use(express.json());
 app.use(cookieParser());
 app.use('/uploads', express.static(__dirname+'/uploads'));

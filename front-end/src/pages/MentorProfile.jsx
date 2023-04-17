@@ -128,7 +128,7 @@ export default function MentorProfile(){
                                 Connect
                             </button>
                             <button className="inline-flex bg-indigo-600 gap-1 text-white py-3 px-6 rounded-full">
-                                Message
+                            <Link to="/landing/Chat">Message</Link>
                             </button>
                         </div>
                     </div>
