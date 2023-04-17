@@ -207,8 +207,23 @@ app.get('/api/profile', limiter, (req, res) => {
   }
 });
 
+app.get('/api/mentor/:id', limiter, async (req, res) => {
+  const mentorId = req.params.id;
+  try {
+    const mentor = await MentorModel.findById(mentorId);
+    if (!mentor) {
+      return res.status(404).json({ error: 'Mentor not found.' });
+    }
+    res.json(mentor);
+  } catch (error) {
+    console.error('Error fetching mentor:', error);
+    res.status(500).json({ error: 'Error fetching mentor.' });
+  }
+});
 
-app.get('/api/mentors', async (req, res) => {
+
+
+app.get('/api/mentors', limiter, async (req, res) => {
   try {
     const mentors = await MentorModel.find();
     res.json(mentors);
@@ -240,4 +255,8 @@ app.post('/upload', photosMiddleware.array('photos', 100), (req, res) => {
 });
 
 
+
+// Other imports and code
+
 app.listen(3001);
+
