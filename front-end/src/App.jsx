@@ -16,10 +16,10 @@ import CompanyRegister from './login/CompanyRegister';
 import CompanyPage from './pages/CompanyHome';
 import MentorHome from './pages/MentorHome';
 import CompanyLogout from './pages/CompanyLogout';
-import MentorProfile from './pages/MentorProfile';
 import MenteeBrowsing from './pages/MenteeBrowsing';
 import MentorAccountPage from './pages/MentorAccountPage';
-import MentorProfile from './pages/MentorProfile';
+
+
 
 
 
@@ -45,9 +45,10 @@ function App() {
         <Route path="/company-home" element={<CompanyPage />} />
         <Route path="/company-logout" element={<CompanyLogout />} />
         <Route path="/mentor-home" element={<MentorHome />} />
-        <Route path="/mentor/:mentorId" element={<MentorProfile />} />
+        <Route path="/mentor/:mentorId" element={<AccountPage />} />
         <Route path="/mentee-browsing" element={<MenteeBrowsing />} />
         <Route path="/mentor-account-page" element={<MentorAccountPage />} />
+      
 
         {/* The above Route with a path of * will match any path that is not matched by previous routes */}
       </Routes>
