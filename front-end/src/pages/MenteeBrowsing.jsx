@@ -27,7 +27,6 @@ export default function MenteeBrowsing() {
               />
             </div>
             <h3 className="mt-4 text-lg font-medium text-gray-700">{mentee.name}</h3>
-            <p className="mt-1 text-sm text-gray-900">{mentee.price}</p>
           </a>
         ))}
       </div>
