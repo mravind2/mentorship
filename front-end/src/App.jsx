@@ -6,7 +6,6 @@ import HomePage from './pages/HomePage';
 import RegisterPage from './login/RegisterPage';
 import MentorPage from './pages/MentorPage';
 import AccountPage from './pages/AccountPage';
-import { UserContextProvider } from './UserContext';
 import NotFound from './landing/NotFound';
 import MenteeLogin from './login/MenteeLogin';
 import MentorLogin from './login/MentorLogin';
@@ -26,7 +25,7 @@ axios.defaults.withCredentials = true;
 function App() {
   return (
     <UserContextProvider>
-      <Routes>
+    <Routes>
       <Route path="/" element={<LandingPage />} />
       <Route path="/register" element={<RegisterPage />} />
       <Route path="/mentor-register" element={<MentorRegister />} />
