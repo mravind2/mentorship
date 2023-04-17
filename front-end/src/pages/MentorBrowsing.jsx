@@ -1,8 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
+import { UserContext } from '../UserContext';
+
 
 export default function MentorBrowsing() {
   const [mentors, setMentors] = useState([]);
+  const { user } = useContext(UserContext);
 
   useEffect(() => {
     axios.get('/api/mentors')
@@ -13,6 +16,8 @@ export default function MentorBrowsing() {
         console.error('Error fetching mentors:', error);
       });
   }, []);
+
+  console.log('Logged-in user:', user);
 
   return (
     <div className="bg-white">

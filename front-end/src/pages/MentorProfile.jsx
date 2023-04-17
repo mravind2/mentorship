@@ -48,7 +48,6 @@ export default function MentorProfile(){
     }
 
 
-
     return(
         <div>
             {action !=='edit' &&(
