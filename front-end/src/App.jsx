@@ -18,6 +18,7 @@ import MentorHome from './pages/MentorHome';
 import CompanyLogout from './pages/CompanyLogout';
 import MentorProfile from './pages/MentorProfile';
 import MenteeBrowsing from './pages/MenteeBrowsing';
+import MentorBrowsing from './pages/MentorBrowsing';
 
 axios.defaults.baseURL = 'http://localhost:3001';
 axios.defaults.withCredentials = true;
@@ -26,24 +27,24 @@ function App() {
   return (
     <UserContextProvider>
       <Routes>
-        <Route path="/" element={<LandingPage />} />
-        <Route path="/register" element={<RegisterPage />} />
-        <Route path="/mentor-register" element={<MentorRegister />} />
-        <Route path="/company-register" element={<CompanyRegister />} />
-        <Route path="/login" element={<MenteeLogin />} />
-        <Route path="/mentor-login" element={<MentorLogin />} />
-        <Route path="/company-login" element={<CompanyLogin />} />
-        <Route path="/home" element={<HomePage />} />
-        <Route path="/mentors" element={<MentorPage />} />
-        <Route path="/account/:subpage?" element={<AccountPage />} />
-        <Route path="/account/:subpage/:action" element={<AccountPage />} />
-        <Route path="*" element={<NotFound/>} />
-        <Route path="/company-home" element={<CompanyPage />} />
-        <Route path="/company-logout" element={<CompanyLogout />} />
-        <Route path="/mentor-home" element={<MentorHome />} />
-        <Route path="/mentor/:mentorId" element={<MentorProfile />} />
-        <Route path="/mentee-browsing" element={<MenteeBrowsing />} />
-      </Routes>
+      <Route path="/" element={<LandingPage />} />
+      <Route path="/register" element={<RegisterPage />} />
+      <Route path="/mentor-register" element={<MentorRegister />} />
+      <Route path="/company-register" element={<CompanyRegister />} />
+      <Route path="/login" element={<MenteeLogin />} />
+      <Route path="/mentor-login" element={<MentorLogin />} />
+      <Route path="/company-login" element={<CompanyLogin />} />
+      <Route path="/home" element={<HomePage />} />
+      <Route path="/mentors" element={<MentorPage />} />
+      <Route path="/account/:subpage?" element={<AccountPage />} />
+      <Route path="/account/:subpage/:action" element={<AccountPage />} />
+      <Route path="*" element={<NotFound />} />
+      <Route path="/company-home" element={<CompanyPage />} />
+      <Route path="/company-logout" element={<CompanyLogout />} />
+      <Route path="/mentor-home" element={<MentorHome />} />
+      <Route path="/mentor/:mentorId" element={<MentorProfile />} />
+      <Route path="/mentor-browsing" element={<MentorBrowsing />} />
+    </Routes>
     </UserContextProvider>
   );
 }
