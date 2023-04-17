@@ -4,7 +4,7 @@ import { useParams, Link } from "react-router-dom";
 import { UserContext } from "../UserContext";
 
 export default function MentorProfile(){
-    const {action} = useParams()
+    const {action} = useParams();
     const {user} = useContext(UserContext);
     const [name,setName] = useState('');
     const [email,setEmail] = useState('');

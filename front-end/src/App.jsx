@@ -16,10 +16,10 @@ import CompanyRegister from './login/CompanyRegister';
 import CompanyPage from './pages/CompanyHome';
 import MentorHome from './pages/MentorHome';
 import CompanyLogout from './pages/CompanyLogout';
-import MentorProfile from './pages/MentorProfile'
-import MentorLogout from './pages/MentorLogout'
-import MenteeBrowsing from './pages/MenteeBrowsing'
-import MentorAccount from './pages/MentorAccount'
+import MentorProfile from './pages/MentorProfile';
+import MentorLogout from './pages/MentorLogout';
+import MenteeBrowsing from './pages/MenteeBrowsing';
+import MentorAccount from './pages/MentorAccount';
 
 axios.defaults.baseURL = 'http://localhost:3001';
 axios.defaults.withCredentials = true;
