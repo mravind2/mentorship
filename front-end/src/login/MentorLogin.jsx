@@ -9,13 +9,13 @@ export default function MentorLogin() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [redirect, setRedirect] = useState(false);
-  const { setUser } = useContext(UserContext);
+  const { saveUser  } = useContext(UserContext);
 
   async function handleLoginSubmit(e) {
     e.preventDefault();
     try {
       const { data } = await axios.post('/mentor-login', { email, password });
-      setUser(data);
+      saveUser (data);
       setRedirect(true);
     } catch (e) {
       alert('Login failed');
