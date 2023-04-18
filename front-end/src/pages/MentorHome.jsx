@@ -1,17 +1,3 @@
-<<<<<<< HEAD
-import Navbar from './Navbar';
-import Header from "./Header";
-
-export default function MentorHome(){
-    return(
-        <div>
-            <Header/>
-            This is Mentor home
-            <Navbar />
-        </div>
-    )
-}
-=======
 import React from 'react';
 import MenteeCard from './MenteeCard';
 import MentorHeader from "./MentorHeader"
@@ -91,4 +77,3 @@ const MentorHome = () => {
 };
 
 export default MentorHome;
->>>>>>> a262d545a640f1cb4d882221f30abf0fbcb80e1d

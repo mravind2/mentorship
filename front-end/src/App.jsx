@@ -16,13 +16,10 @@ import CompanyPage from './pages/CompanyHome';
 import MentorHome from './pages/MentorHome';
 import CompanyLogout from './pages/CompanyLogout';
 import MentorProfile from './pages/MentorProfile';
-<<<<<<< HEAD
 import Notification from './pages/Notification';
-=======
 import MentorProfilePage from './pages/MentorProfilePage'
 import MentorAccount from './pages/MentorAccount'
 import MentorLogout from './pages/MentorLogout'
->>>>>>> a262d545a640f1cb4d882221f30abf0fbcb80e1d
 
 axios.defaults.baseURL = 'http://localhost:3001';
 axios.defaults.withCredentials = true;
