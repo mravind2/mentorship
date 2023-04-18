@@ -6,6 +6,7 @@ const UserSchema = new Schema({
   email: {type:String, unique:true},
   password: String,
   mentors: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Mentor' }],
+  imageSrc: String,
 });
 
 const UserModel = mongoose.model('User', UserSchema);
