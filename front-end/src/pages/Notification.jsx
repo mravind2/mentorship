@@ -31,27 +31,29 @@ const Notification = () => {
   };
 
   return (
-    
-    <div className="mx-auto my-8 grid max-w-[720px] gap-8 rounded-lg bg-white p-8">
+    <div>
       <Header/> 
-      <nav className="flex justify-between">
-        <div className="flex items-center gap-2">
-          <h1 className=" text-2xl font-extrabold">Notifications</h1>
-          <span className="grid h-6 w-8 place-items-center rounded-md bg-blue font-bold text-white">
-            {notifLength}
-          </span>
-        </div>
+      <div className="mx-auto my-8 grid max-w-[720px] gap-8 rounded-lg bg-white p-8">
         
-        <button className=" text-blue-dark-grayish" onClick={allRead}>
-          Mark all as read
-        </button>
-      </nav>
-      <div className="grid gap-2">
-        {notifications.map((el) => (
-          <EachNotif key={el.id} el={el} handleRead={handleRead} />
-        ))}
+        <nav className="flex justify-between">
+          <div className="flex items-center gap-2">
+            <h1 className=" text-2xl font-extrabold">Notifications</h1>
+            <span className="grid h-6 w-8 place-items-center rounded-md bg-blue font-bold text-white">
+              {notifLength}
+            </span>
+          </div>
+          
+          <button className=" text-blue-dark-grayish" onClick={allRead}>
+            Mark all as read
+          </button>
+        </nav>
+        <div className="grid gap-2">
+          {notifications.map((el) => (
+            <EachNotif key={el.id} el={el} handleRead={handleRead} />
+          ))}
+        </div>
+        <Navbar />
       </div>
-      <Navbar />
     </div>
   );
 };
