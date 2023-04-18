@@ -80,4 +80,3 @@ const MentorProfilePage = () => {
     );
   };        
 export default MentorProfilePage;
-
