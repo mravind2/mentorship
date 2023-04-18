@@ -1,29 +1,55 @@
-import React, { useEffect, useState, useContext } from 'react'; // Add useContext import
+import React, { useEffect, useState, useContext } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import Header from './Header';
-import { UserContext } from '../UserContext'; // Import UserContext
+import { UserContext } from '../UserContext';
 
 const MentorProfile = () => {
   const { mentorId } = useParams();
   const [mentor, setMentor] = useState(null);
-  
-  const { user } = useContext(UserContext); // Access user data using useContext
+  const [mentees, setMentees] = useState([]);
+
+  const { user } = useContext(UserContext);
 
   useEffect(() => {
-    const fetchMentor = async () => {
+    const fetchMentorAndMentees = async () => {
       try {
-        const response = await axios.get(`/api/mentor/${mentorId}`);
-        setMentor(response.data);
+        const mentorResponse = await axios.get(`/api/mentor/${mentorId}`);
+        setMentor(mentorResponse.data);
+  
+        const menteesResponse = await axios.get(`/api/mentor/${mentorId}/mentees`);
+        setMentees(menteesResponse.data);
       } catch (error) {
-        console.error('Error fetching mentor data:', error);
+        console.error('Error fetching mentor and mentees data:', error);
       }
     };
-
-    fetchMentor();
+  
+    fetchMentorAndMentees();
   }, [mentorId]);
 
-  console.log('Logged-in user:', user); // Log the user data
+  const handleConnect = async () => {
+    try {
+      await axios.post(`/api/connect/${mentorId}`, { menteeId: user._id });
+      alert('Connected successfully!');
+    } catch (error) {
+      console.error('Error connecting mentor and mentee:', error);
+      alert('Error connecting mentor and mentee.');
+    }
+  };
+
+  const MenteeCard = ({ mentee }) => {
+    return (
+      <div className="bg-white rounded-lg shadow-md p-4 mb-4">
+        <div className="flex items-center">
+          <img src={mentee.imageSrc} alt={mentee.imageAlt} className="w-16 h-16 rounded-full object-cover" />
+          <div className="ml-4">
+            <h3 className="text-lg font-medium text-gray-700">{mentee.name}</h3>
+            <p className="text-sm text-gray-600">{mentee.email}</p>
+          </div>
+        </div>
+      </div>
+    );
+  };
 
   return (
     mentor && (
@@ -55,7 +81,10 @@ const MentorProfile = () => {
             </div>
 
             <div className="space-x-8 flex justify-between mt-32 md:mt-0 md:justify-center">
-              <button className="inline-flex bg-indigo-600 gap-1 text-white py-3 px-6 rounded-full">
+            <button
+                className="inline-flex bg-indigo-600 gap-1 text-white py-3 px-6 rounded-full"
+                onClick={handleConnect}
+              >
                 Connect
               </button>
               <button className="inline-flex bg-indigo-600 gap-1 text-white py-3 px-6 rounded-full">
@@ -75,6 +104,18 @@ const MentorProfile = () => {
             <p className="text-gray-600 text-center font-light lg:px-16">An artist of considerable range, Ryan — the name taken by Melbourne-raised, Brooklyn-based Nick Murphy — writes, performs and records all of his own music, giving it a warm, intimate feel with a solid groove structure. An artist of considerable range.</p>
           </div>
         </div>
+        {
+            mentees && mentees.length > 0 && (
+              <div className="mt-12">
+                <h2 className="text-2xl font-medium text-gray-700 mb-4">Mentees</h2>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                  {mentees.map((mentee) => (
+                    <MenteeCard key={mentee._id} mentee={mentee} />
+                  ))}
+                </div>
+              </div>
+              )
+            }
       </div>
       </>
       )
