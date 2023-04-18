@@ -220,6 +220,29 @@ app.get('/api/mentor/:id', limiter, async (req, res) => {
   }
 });
 
+app.get('/api/mentor/:mentorId/mentees', limiter, async (req, res) => {
+  const mentorId = req.params.mentorId;
+  try {
+    const mentor = await MentorModel.findById(mentorId).populate('mentees');
+    if (!mentor) {
+      return res.status(404).json({ error: 'Mentor not found.' });
+    }
+    res.json(mentor.mentees);
+  } catch (error) {
+    console.error('Error fetching mentees:', error);
+    res.status(500).json({ error: 'Error fetching mentees.' });
+  }
+});
+
+app.get('/api/mentees', limiter, async (req, res) => {
+  try {
+    const mentees = await UserModel.find();
+    res.json(mentees);
+  } catch (error) {
+    console.error('Error fetching mentees:', error);
+    res.status(500).json({ error: 'Error fetching mentees.' });
+  }
+});
 
 
 app.get('/api/mentors', limiter, async (req, res) => {
@@ -239,6 +262,51 @@ app.get('/api/mentees', limiter, async (req, res) => {
   } catch (error) {
     console.error('Error fetching mentees:', error);
     res.status(500).json({ error: 'Error fetching mentees.' });
+
+app.get('/api/mentee/:id', limiter, async (req, res) => {
+  const menteeId = req.params.id;
+  try {
+    const mentee = await UserModel.findById(menteeId);
+    if (!mentee) {
+      return res.status(404).json({ error: 'Mentee not found.' });
+    }
+    res.json(mentee);
+  } catch (error) {
+    console.error('Error fetching mentee:', error);
+    res.status(500).json({ error: 'Error fetching mentee.' });
+  }
+});
+
+
+app.post('/api/connect/:mentorId', async (req, res) => {
+  const { menteeId } = req.body;
+  const { mentorId } = req.params;
+
+  try {
+    const mentor = await MentorModel.findById(mentorId);
+    const mentee = await User.findById(menteeId);
+
+    if (!mentor || !mentee) {
+      return res.status(404).json({ error: 'Mentor or mentee not found.' });
+    }
+
+    // Add mentee to mentor's mentees list if not already added
+    if (!mentor.mentees.includes(menteeId)) {
+      mentor.mentees.push(menteeId);
+      await mentor.save();
+    }
+
+    // Add mentor to mentee's mentors list if not already added
+    if (!mentee.mentors.includes(mentorId)) {
+      mentee.mentors.push(mentorId);
+      await mentee.save();
+    }
+
+    res.json({ message: 'Connected successfully.' });
+  } catch (error) {
+    console.error('Error connecting mentor and mentee:', error);
+    res.status(500).json({ error: 'Error connecting mentor and mentee.' });
+
   }
 });
 
