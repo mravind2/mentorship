@@ -16,7 +16,7 @@ export default function MentorHeader() {
 
             
               <div className="flex items-center gap-12">
-                <Link to="/home" className="text-sm font-semibold leading-6 text-gray-900">
+                <Link to="/mentor-home" className="text-sm font-semibold leading-6 text-gray-900">
                   Home
                 </Link>
                 <Link to="/mentee-browsing" className="text-sm font-semibold leading-6 text-gray-900">
