@@ -5,7 +5,7 @@ const MentorSchema = new Schema({
   name: String,
   email: { type: String, unique: true },
   password: String,
-  mentees: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Mentee' }],
+  mentees: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }],
   imageSrc: String,
   imageAlt: String,
 });
