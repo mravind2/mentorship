@@ -13,6 +13,9 @@ export default function ProfilePage(){
     const [addedPhotos,setAddedPhotos] = useState([]);
     const [profilePicture, setProfilePicture] = useState('');
     const [imageSrc, setImageSrc] = useState('');
+    const [location, setLocation] = useState('');
+    const [role, setRole] = useState('');
+
 
 
 
@@ -59,6 +62,8 @@ export default function ProfilePage(){
           linkedin,
           description,
           imageSrc, // Add this line
+          location,
+          role
         };
       
         // Only add email to the updated data if it's not empty
@@ -111,6 +116,10 @@ export default function ProfilePage(){
                         <textarea value={description} onChange={ev => setDescription(ev.target.value)} placeholder="Tell us about yourself" className="mb-4 w-full border my-1 py-2 px-3 rounded-2xl"></textarea>
                         {preInput('Image Source')}
                         <input type="text" value={imageSrc} onChange={ev => setImageSrc(ev.target.value)} placeholder="https://example.com/image.png" className="p-4 border mb-4 rounded-full"/>
+                        {preInput('Location')}
+                        <input type="text" value={location} onChange={ev => setLocation(ev.target.value)} placeholder="New York, NY" className="p-4 border mb-4 rounded-full"/>
+                        {preInput('Role')}
+                        <input type="text" value={role} onChange={ev => setRole(ev.target.value)} placeholder="Software Engineer" className="p-4 border mb-4 rounded-full"/>
                         {preInput('Photos')}
                         <div className="mt-2 grid gap-2 grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
                         {addedPhotos.length > 0 && addedPhotos.map((Link, index) => (
@@ -173,11 +182,12 @@ export default function ProfilePage(){
                     </div>
                     <div className="mt-20 text-center border-b pb-12">
                         <h1 className="text-4xl font-medium text-gray-700">{user?.name}</h1>
-                        <p className="font-light text-gray-600 mt-3">Tempe, AZ</p>
-                        <p className="mt-8 text-gray-500">Software Engineer</p>
+                        <p className="font-light text-gray-600 mt-3">{user?.location ? user.location : "Tempe, AZ"}</p>
+<p className="mt-8 text-gray-500">{user?.role ? user.role : "Software Engineer"}</p>
+
                     </div>
                     <div className="mt-12 flex flex-col justify-center">
-                        <p className="text-gray-600 text-center font-light lg:px-16">An artist of considerable range, Ryan — the name taken by Melbourne-raised, Brooklyn-based Nick Murphy — writes, performs and records all of his own music, giving it a warm, intimate feel with a solid groove structure. An artist of considerable range.</p>                        
+                        <p className="text-gray-600 text-center font-light lg:px-16">{user?.description ? user.description : "An artist of considerable range, Ryan — the name taken by Melbourne-raised, Brooklyn-based Nick Murphy — writes, performs and records all of his own music, giving it a warm, intimate feel with a solid groove structure. An artist of considerable range."}</p>                        
                     </div>
                 </div>
             </div>
