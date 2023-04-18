@@ -1,12 +1,12 @@
 import Header from "./Header";
-import FeaturesZigZag from './FeaturesZigzag';
+import MenteeHome from "./MenteeHome";
 
 
 export default function HomePage(){
     return(      
         <div>
             <Header/>    
-            <FeaturesZigZag />  
+            <MenteeHome />  
         </div>
     )
 }
