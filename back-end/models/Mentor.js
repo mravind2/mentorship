@@ -8,6 +8,10 @@ const MentorSchema = new Schema({
   mentees: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }],
   imageSrc: String,
   imageAlt: String,
+  description: String,
+  linkedin: String,
+  location: String,
+  role: String,
 });
 
 const MentorModel = mongoose.model('Mentor', MentorSchema);
