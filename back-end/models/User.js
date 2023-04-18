@@ -7,6 +7,8 @@ const UserSchema = new Schema({
   password: String,
   mentors: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Mentor' }],
   imageSrc: String,
+  description: String,
+  linkedin: String,
 });
 
 const UserModel = mongoose.model('User', UserSchema);
