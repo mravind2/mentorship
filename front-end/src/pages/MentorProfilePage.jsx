@@ -3,15 +3,20 @@ import { useContext, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { UserContext } from "../UserContext";
 
+
 export default function MentorProfilePage(){
     const {action} = useParams()
-    const {user} = useContext(UserContext);
+    const { user, setUser } = useContext(UserContext);
     const [name,setName] = useState('');
     const [email,setEmail] = useState('');
     const [linkedin,setLinkedin] = useState('');
     const [description,setDescription] = useState('');
     const [addedPhotos,setAddedPhotos] = useState([]);
     const [profilePicture, setProfilePicture] = useState('');
+    const [location, setLocation] = useState('');
+    const [role, setRole] = useState('');
+    const [imageSrc, setImageSrc] = useState('');
+
 
     function inputHeader(text) {
         return(
@@ -47,6 +52,37 @@ export default function MentorProfilePage(){
         
     }
 
+    function handleFormSubmit(event) {
+        event.preventDefault();
+    
+        const updatedMentorData = {
+          name,
+          linkedin,
+          description,
+          imageSrc, // Add this line
+          location,
+          role,
+        };
+    
+        // Only add email to the updated data if it's not empty
+        if (email) {
+          updatedMentorData.email = email;
+        }
+    
+        axios
+          .post(`/api/mentor/${user._id}`, updatedMentorData)
+          .then((response) => {
+            const updatedMentor = response.data;
+            setUser(updatedMentor);
+            // Show a success message to the user
+            alert("Mentor data updated successfully!");
+          })
+          .catch((error) => {
+            // Handle the error and show an error message to the user
+            alert("Failed to update mentor data.");
+          });
+      }
+
 
 
     return(
@@ -64,7 +100,7 @@ export default function MentorProfilePage(){
             )}
             {action === 'edit' && (
                 <div className="px-4">
-                    <form className="flex flex-col">
+                    <form onSubmit={handleFormSubmit} className="flex flex-col">
                         {preInput('Name')}
                         <input type="text" value={name} onChange={ev => setName(ev.target.value)} placeholder={user?.name} className="p-4 border mb-4 rounded-full"/>
                         {preInput('Email')}
@@ -73,6 +109,12 @@ export default function MentorProfilePage(){
                         <input type="text" value={linkedin} onChange={ev => setLinkedin(ev.target.value)} placeholder="https://www.linkedin.com/in/yourprofile/" className="p-4 border mb-4 rounded-full"/>
                         {preInput('Description')}
                         <textarea value={description} onChange={ev => setDescription(ev.target.value)} placeholder="Tell us about yourself" className="mb-4 w-full border my-1 py-2 px-3 rounded-2xl"></textarea>
+                        {preInput('Location')}
+                        <input type="text" value={location} onChange={ev => setLocation(ev.target.value)} placeholder="New York, NY" className="p-4 border mb-4 rounded-full"/>
+                        {preInput('Role')}
+                        <input type="text" value={role} onChange={ev => setRole(ev.target.value)} placeholder="Software Engineer" className="p-4 border mb-4 rounded-full"/>
+                        {preInput('Image Source')}
+                        <input type="text" value={imageSrc} onChange={ev => setImageSrc(ev.target.value)} placeholder="https://example.com/image.png" className="p-4 border mb-4 rounded-full"/>
                         {preInput('Photos')}
                         <div className="mt-2 grid gap-2 grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
                         {addedPhotos.length > 0 && addedPhotos.map((Link, index) => (
@@ -89,7 +131,7 @@ export default function MentorProfilePage(){
                                 Upload
                             </label>
                         </div>
-                        <button className="bg-indigo-600 text-white py-2 mt-4 rounded-full">Save</button>
+                        <button type="submit" className="bg-indigo-600 text-white py-2 mt-4 rounded-full">Save</button>
 
                     </form>
                 </div>
@@ -113,14 +155,14 @@ export default function MentorProfilePage(){
                         </div>
                         <div className="relative">
                         <div className="w-48 h-48 bg-indigo-100 mx-auto rounded-full shadow-2xl absolute inset-x-0 top-0 -mt-24 flex items-center justify-center text-indigo-500">
-                            {profilePicture ? (
-                                <img src={profilePicture} alt="Profile" className="w-48 h-48 rounded-full object-cover" />
-                                    ) : (
-                                    <svg xmlns="http://www.w3.org/2000/svg" className="h-24 w-24" viewBox="0 0 20 20" fill="currentColor">
-                                        <path fillRule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clipRule="evenodd" />
-                                        </svg>
-                                         )}
-                                    </div>
+  {user && user.imageSrc ? (
+    <img src={user.imageSrc} alt="Profile" className="w-48 h-48 rounded-full object-cover" />
+  ) : (
+    <svg xmlns="http://www.w3.org/2000/svg" className="h-24 w-24" viewBox="0 0 20 20" fill="currentColor">
+      <path fillRule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clipRule="evenodd" />
+    </svg>
+  )}
+</div>
                         </div>
 
                         <div className="space-x-8 flex justify-between mt-32 md:mt-0 md:justify-center">
@@ -133,13 +175,12 @@ export default function MentorProfilePage(){
                         </div>
                     </div>
                     <div className="mt-20 text-center border-b pb-12">
-                        <h1 className="text-4xl font-medium text-gray-700">{user?.name} <span className="font-light text-gray-500">27</span></h1>
-                        <p className="font-light text-gray-600 mt-3">Tempe, Arizona</p>
-                        <p className="mt-8 text-gray-500">Solution Manager - Creative Tim Officer</p>
-                        <p className="mt-2 text-gray-500">Arizona State University</p>
+                    <h1 className="text-4xl font-medium text-gray-700">{user?.name}</h1>
+                        <p className="font-light text-gray-600 mt-3">{user?.location ? user.location : "Tempe, AZ"}</p>
+<p className="mt-8 text-gray-500">{user?.role ? user.role : "Software Engineer"}</p>
                     </div>
                     <div className="mt-12 flex flex-col justify-center">
-                        <p className="text-gray-600 text-center font-light lg:px-16">An artist of considerable range, Ryan — the name taken by Melbourne-raised, Brooklyn-based Nick Murphy — writes, performs and records all of his own music, giving it a warm, intimate feel with a solid groove structure. An artist of considerable range.</p>                        
+                        <p className="text-gray-600 text-center font-light lg:px-16">{user?.description ? user.description : "An artist of considerable range, Ryan — the name taken by Melbourne-raised, Brooklyn-based Nick Murphy — writes, performs and records all of his own music, giving it a warm, intimate feel with a solid groove structure. An artist of considerable range."}</p>                        
                     </div>
                 </div>
             </div>

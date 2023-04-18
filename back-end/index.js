@@ -345,6 +345,20 @@ app.get('/api/mentee', limiter, async (req, res) => {
   }
 });
 
+app.post('/api/mentor/:id', async (req, res) => {
+  const { id } = req.params;
+  const updatedMentorData = req.body;
+  try {
+    const updatedMentor = await MentorModel.findByIdAndUpdate(id, updatedMentorData, { new: true });
+    res.json(updatedMentor);
+  } catch (error) {
+    console.error('Error updating mentor:', error);
+    res.status(500).json({ message: 'Server error' });
+  }
+});
+
+
+
 
 
 
