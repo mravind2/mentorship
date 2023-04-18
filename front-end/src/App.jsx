@@ -19,6 +19,7 @@ import MentorProfile from './pages/MentorProfile';
 import MentorProfilePage from './pages/MentorProfilePage'
 import MentorAccount from './pages/MentorAccount'
 import MentorLogout from './pages/MentorLogout'
+import MenteeFilter from './pages/MenteeFilter';
 
 axios.defaults.baseURL = 'http://localhost:3001';
 axios.defaults.withCredentials = true;
@@ -47,6 +48,7 @@ function App() {
       <Route path="/mentor-account/:subpage/:action" element={<MentorAccount />} />
 
       <Route path="/mentor/:mentorId" element={<MentorProfile />} />
+      <Route path="/mentee-browsing" element={<MenteeFilter />} />
     </Routes>
   );
 }
