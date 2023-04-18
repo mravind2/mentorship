@@ -118,20 +118,19 @@ const MentorProfile = () => {
 
           <div className="mt-20 text-center border-b pb-12">
           <h1 className="text-4xl font-medium text-gray-700">
-              {mentor.name} <span className="font-light text-gray-500">27</span>
+              {mentor.name}
           </h1>
           <div
               className={`mentor-badge mt-2 inline-block py-1 px-3 rounded-full text-white bg-gradient-to-r ${badgeClasses[mentorBadge]}`}
           >
             <span>{mentorBadge} Mentor</span>
           </div>
-            <p className="font-light text-gray-600 mt-3">Tempe, Arizona</p>
-            <p className="mt-8 text-gray-500">Solution Manager - Creative Tim Officer</p>
-            <p className="mt-2 text-gray-500">Arizona State University</p>
+          <p className="font-light text-gray-600 mt-3">{mentor.location ? mentor.location : "Tempe, AZ"}</p>
+          <p className="mt-8 text-gray-500">{mentor.role ? mentor.role : "Software Engineer"}</p>
           </div>
 
           <div className="mt-12 flex flex-col justify-center">
-            <p className="text-gray-600 text-center font-light lg:px-16">An artist of considerable range, Ryan — the name taken by Melbourne-raised, Brooklyn-based Nick Murphy — writes, performs and records all of his own music, giving it a warm, intimate feel with a solid groove structure. An artist of considerable range.</p>
+          <p className="text-gray-600 text-center font-light lg:px-16">{mentor.description ? mentor.description : "An artist of considerable range, Ryan — the name taken by Melbourne-raised, Brooklyn-based Nick Murphy — writes, performs and records all of his own music, giving it a warm, intimate feel with a solid groove structure. An artist of considerable range."}</p>                        
           </div>
         </div>
         {
