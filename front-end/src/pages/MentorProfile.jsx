@@ -27,6 +27,29 @@ const MentorProfile = () => {
     fetchMentorAndMentees();
   }, [mentorId]);
 
+  function getMentorBadge(mentees) {
+    const menteesCount = mentees.length;
+
+    if (menteesCount >= 10) {
+      return 'Gold';
+    } else if (menteesCount >= 5) {
+      return 'Silver';
+    } else if (menteesCount >= 1) {
+      return 'Bronze';
+    } else {
+      return 'No Badge';
+    }
+  }
+
+  const mentorBadge = mentor && getMentorBadge(mentor.mentees);
+
+  const badgeClasses = {
+    Gold: 'from-yellow-400 via-yellow-500 to-yellow-600',
+    Silver: 'from-gray-300 via-gray-400 to-gray-500',
+    Bronze: 'from-orange-400 via-orange-500 to-orange-600',
+    'No Badge': 'from-gray-200 via-gray-300 to-gray-400',
+  };
+
   const handleConnect = async () => {
     try {
       await axios.post(`/api/connect/${mentorId}`, { menteeId: user._id });
@@ -94,7 +117,14 @@ const MentorProfile = () => {
           </div>
 
           <div className="mt-20 text-center border-b pb-12">
-            <h1 className="text-4xl font-medium text-gray-700">{mentor.name} <span className="font-light text-gray-500">27</span></h1>
+          <h1 className="text-4xl font-medium text-gray-700">
+              {mentor.name} <span className="font-light text-gray-500">27</span>
+          </h1>
+          <div
+              className={`mentor-badge mt-2 inline-block py-1 px-3 rounded-full text-white bg-gradient-to-r ${badgeClasses[mentorBadge]}`}
+          >
+            <span>{mentorBadge} Mentor</span>
+          </div>
             <p className="font-light text-gray-600 mt-3">Tempe, Arizona</p>
             <p className="mt-8 text-gray-500">Solution Manager - Creative Tim Officer</p>
             <p className="mt-2 text-gray-500">Arizona State University</p>
