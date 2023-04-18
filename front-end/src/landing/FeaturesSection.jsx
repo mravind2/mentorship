@@ -2,27 +2,27 @@ import { ArrowPathIcon, CloudArrowUpIcon, FingerPrintIcon, LockClosedIcon } from
 
 const features = [
   {
-    name: 'Push to deploy',
+    name: 'Wide Variety',
     description:
-      'With push to deploy, we can update/maintain our site and avoid downtime with live updates.',
+      'We offer mentors in just about any field from sales to material scientists',
     icon: CloudArrowUpIcon,
   },
   {
-    name: 'SSL certificates',
+    name: 'Personalized Experiece',
     description:
-      'Have peace of mind knowing our site and your info is secure .',
+      'Users can search for mentors using their personalized filters to show who ma fit best.',
     icon: LockClosedIcon,
   },
   {
-    name: 'Simple queues',
+    name: 'Simple Sign-ups',
     description:
-      'Secure your mentorship easily with our simplified and fair queueing system.',
+      'We offer a quick and easy sign up sheet anlong with being able to directly message any mentor.',
     icon: ArrowPathIcon,
   },
   {
-    name: 'Advanced security',
+    name: 'Certified Mentors',
     description:
-      'We use advanced encryption software to ensure your data is secure.',
+      'We ensure our mentors value your time as much as you do, so they have to take a short course before mentoring.',
     icon: FingerPrintIcon,
   },
 ]
@@ -32,13 +32,13 @@ export default function FeaturesSection() {
     <div className="bg-white">
       <div className="mx-auto max-w-7xl px-6 pt-4 lg:px-8">
         <div className="mx-auto max-w-2xl lg:text-center">
-          <h2 className="text-base font-semibold leading-7 text-indigo-600">Deploy faster</h2>
+          <h2 className="text-base font-semibold leading-7 text-indigo-600">Connect Easier</h2>
           <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-            Everything you need to deploy your app
+            Everything you need to know about connecting with one of our mentors!
           </p>
           <p className="mt-6 text-lg leading-8 text-gray-600">
-            Quis tellus eget adipiscing convallis sit sit eget aliquet quis. Suspendisse eget egestas a elementum
-            pulvinar et feugiat blandit at. In mi viverra elit nunc.
+            It is quick and easy to meet with one of our qualified mentors, along with 
+            being able to attend group talks with mentors. 
           </p>
         </div>
         <div className="relative isolate px-6 pt-14 lg:px-8">
