@@ -334,6 +334,17 @@ app.post('/api/user/:id', async (req, res) => {
   }
 });
 
+// display mentees on mentee browsing
+app.get('/api/mentee', limiter, async (req, res) => {
+  try {
+    const mentees = await User.find();
+    res.json(mentees);
+  } catch (error) {
+    console.error('Error fetching mentee:', error);
+    res.status(500).json({ error: 'Error fetching mentee.' });
+  }
+});
+
 
 
 
