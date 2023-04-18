@@ -6,6 +6,7 @@ import HomePage from './pages/HomePage';
 import RegisterPage from './login/RegisterPage';
 import MentorPage from './pages/MentorPage';
 import AccountPage from './pages/AccountPage';
+import { UserContextProvider } from './UserContext';
 import NotFound from './landing/NotFound';
 import MenteeLogin from './login/MenteeLogin';
 import MentorLogin from './login/MentorLogin';
@@ -15,10 +16,11 @@ import CompanyRegister from './login/CompanyRegister';
 import CompanyPage from './pages/CompanyHome';
 import MentorHome from './pages/MentorHome';
 import CompanyLogout from './pages/CompanyLogout';
-import MentorProfile from './pages/MentorProfile';
-import MentorLogout from './pages/MentorLogout';
-import MenteeBrowsing from './pages/MenteeBrowsing';
-import MentorAccount from './pages/MentorAccount';
+import MentorProfilePage from './pages/MentorProfilePage'
+import MentorLogout from './pages/MentorLogout'
+import MenteeBrowsing from './pages/MenteeBrowsing'
+import MentorAccount from './pages/MentorAccount'
+
 
 axios.defaults.baseURL = 'http://localhost:3001';
 axios.defaults.withCredentials = true;
@@ -44,13 +46,13 @@ function App() {
         <Route path="/mentor-logout" element={<MentorLogout />} />
         <Route path="/mentor-home" element={<MentorHome />} />
         <Route path="/mentor-account" element={<MentorAccount />} />
-        <Route path="/mentor-profile" element={<MentorProfile />} />
+        <Route path="/mentor-profile-page" element={<MentorProfilePage />} />
         <Route path="/mentor-account/:subpage?" element={<MentorAccount />} />
         <Route path="/mentor-account/:subpage/:action" element={<MentorAccount />} />
         <Route path="/mentee-browsing" element={<MenteeBrowsing />} />
 
         {/* The above Route with a path of * will match any path that is not matched by previous routes */}
-        <Route path="/mentor/:mentorId" element={<MentorProfile />} />
+        <Route path="/mentor/:mentorId" element={<MentorProfilePage />} />
       </Routes>
     </UserContextProvider>
   );

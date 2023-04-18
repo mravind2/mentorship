@@ -4,7 +4,7 @@ import { Navigate, useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { UserContext } from "../UserContext";
 import MentorHeader from "./MentorHeader";
-import MentorProfile from "./MentorProfile";
+import MentorProfilePage from "./MentorProfilePage";
 
 
 export default function MentorLogout(){
@@ -12,7 +12,7 @@ export default function MentorLogout(){
     const [redirect,setRedirect] = useState(null);
     let {subpage} = useParams();
     if (subpage === undefined){
-        subpage = 'mentor-profile';
+        subpage = 'mentor-profile-page';
     }
 
     async function logout() {
@@ -31,7 +31,7 @@ export default function MentorLogout(){
         return classes;
     }
 
-    
+
     if (ready && !user && !redirect) {
         return <Navigate to={'/login'} />
     }
@@ -44,7 +44,7 @@ export default function MentorLogout(){
         <div>
             <MentorHeader/>
             <nav className="w-full flex mt-8 justify-center gap-8 mb-8 text-sm font-semibold leading-6 text-gray-900">
-                <Link className={linkClasses('mentor-profile')} to={'/mentor-account/mentor-profile'}>
+                <Link className={linkClasses('mentor-profile-page')} to={'/mentor-account/mentor-profile-page'}>
                     <div className="flex items-center">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6 mr-2">
                             <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
@@ -69,9 +69,9 @@ export default function MentorLogout(){
                 </div>
             )}
             {subpage === 'profile' && (
-                <MentorProfile />
+                <MentorProfilePage />
             )}
-                
+
         </div>
     )
 }
