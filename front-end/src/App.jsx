@@ -43,8 +43,8 @@ function App() {
       <Route path="/mentor-home" element={<MentorHome />} />
       <Route path="/mentor-profile-page" element={<MentorProfilePage />} />
       <Route path="/mentor-logout" element={<MentorLogout />} />
-      <Route path="/mentor-account/:subpage?" element={<AccountPage />} />
-      <Route path="/mentor-account/:subpage/:action" element={<AccountPage />} />
+      <Route path="/mentor-account/:subpage?" element={<MentorAccount />} />
+      <Route path="/mentor-account/:subpage/:action" element={<MentorAccount />} />
 
       <Route path="/mentor/:mentorId" element={<MentorProfile />} />
     </Routes>
