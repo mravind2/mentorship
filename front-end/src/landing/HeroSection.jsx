@@ -46,7 +46,7 @@ export default function HeroSection() {
           </div>
           <div className="text-center">
             <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
-              Connect with a specialized mentor today!
+              Connect with a mentor today!
             </h1>
             <p className="mt-6 text-lg leading-8 text-gray-600">
             Talk with a mentor to to get you on track to chase your dreams and take your success to the next level.
