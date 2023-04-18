@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import { UserContextProvider } from './UserContext';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import LandingPage from './landing/LandingPage';
 import HomePage from './pages/HomePage';
@@ -18,6 +19,7 @@ import CompanyLogout from './pages/CompanyLogout';
 import MentorProfile from './pages/MentorProfile';
 import MenteeBrowsing from './pages/MenteeBrowsing';
 import MentorBrowsing from './pages/MentorBrowsing';
+
 
 axios.defaults.baseURL = 'http://localhost:3001';
 axios.defaults.withCredentials = true;
@@ -43,6 +45,7 @@ function App() {
       <Route path="/mentor-home" element={<MentorHome />} />
       <Route path="/mentor/:mentorId" element={<MentorProfile />} />
       <Route path="/mentor-browsing" element={<MentorBrowsing />} />
+      <Route path="/mentee-browsing" element={<MenteeBrowsing />} />
     </Routes>
     </UserContextProvider>
   );
