@@ -16,6 +16,7 @@ import CompanyPage from './pages/CompanyHome';
 import MentorHome from './pages/MentorHome';
 import CompanyLogout from './pages/CompanyLogout';
 import MentorProfile from './pages/MentorProfile';
+import Notification from './pages/Notification';
 import MentorProfilePage from './pages/MentorProfilePage'
 import MentorAccount from './pages/MentorAccount'
 import MentorLogout from './pages/MentorLogout'
@@ -31,6 +32,7 @@ function App() {
       <Route path="/register" element={<RegisterPage />} />
       <Route path="/mentor-register" element={<MentorRegister />} />
       <Route path="/company-register" element={<CompanyRegister />} />
+      <Route path="/notification" element={<Notification />} />
       <Route path="/login" element={<MenteeLogin />} />
       <Route path="/mentor-login" element={<MentorLogin />} />
       <Route path="/company-login" element={<CompanyLogin />} />
