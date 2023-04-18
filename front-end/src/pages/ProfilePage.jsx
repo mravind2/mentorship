@@ -5,7 +5,7 @@ import { UserContext } from "../UserContext";
 
 export default function ProfilePage(){
     const {action} = useParams()
-    const {user} = useContext(UserContext);
+    const { user, setUser } = useContext(UserContext);
     const [name,setName] = useState('');
     const [email,setEmail] = useState('');
     const [linkedin,setLinkedin] = useState('');
@@ -47,6 +47,38 @@ export default function ProfilePage(){
         
     }
 
+    function handleFormSubmit(event) {
+        event.preventDefault();
+      
+        const updatedUserData = {
+          name,
+          linkedin,
+          description,
+          imageSrc: profilePicture, // Add this line
+        };
+      
+        // Only add email to the updated data if it's not empty
+        if (email) {
+          updatedUserData.email = email;
+        }
+      
+        axios.post(`/api/user/${user._id}`, updatedUserData)
+          .then(response => {
+            const updatedUser = response.data;
+            setUser(updatedUser);
+            // Show a success message to the user
+            alert('User data updated successfully!');
+          })
+          .catch(error => {
+            // Handle the error and show an error message to the user
+            alert('Failed to update user data.');
+          });
+      }
+      
+      
+      
+      
+
 
 
     return(
@@ -64,7 +96,7 @@ export default function ProfilePage(){
             )}
             {action === 'edit' && (
                 <div className="px-4">
-                    <form className="flex flex-col">
+                    <form onSubmit={handleFormSubmit} className="flex flex-col">
                         {preInput('Name')}
                         <input type="text" value={name} onChange={ev => setName(ev.target.value)} placeholder={user?.name} className="p-4 border mb-4 rounded-full"/>
                         {preInput('Email')}
@@ -89,7 +121,7 @@ export default function ProfilePage(){
                                 Upload
                             </label>
                         </div>
-                        <button className="bg-indigo-600 text-white py-2 mt-4 rounded-full">Save</button>
+                        <button type="submit" className="bg-indigo-600 text-white py-2 mt-4 rounded-full">Save</button>
 
                     </form>
                 </div>
