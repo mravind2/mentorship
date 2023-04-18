@@ -322,6 +322,25 @@ app.post('/upload', photosMiddleware.array('photos', 100), (req, res) => {
   res.json(uploadedFiles);
 });
 
+app.post('/api/user/:id', async (req, res) => {
+  const { id } = req.params;
+  const updatedUserData = req.body;
+  try {
+    const updatedUser = await User.findByIdAndUpdate(id, updatedUserData, { new: true });
+    res.json(updatedUser);
+  } catch (error) {
+    console.error(error); // Add this line to log the error
+    res.status(500).json({ message: 'Server error' });
+  }
+});
+
+
+
+
+
+
+
+
 
 
 // Other imports and code
