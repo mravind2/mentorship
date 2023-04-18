@@ -9,6 +9,8 @@ const UserSchema = new Schema({
   imageSrc: String,
   description: String,
   linkedin: String,
+  location: String,
+  role: String,
 });
 
 const UserModel = mongoose.model('User', UserSchema);
