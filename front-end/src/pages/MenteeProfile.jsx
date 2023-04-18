@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useContext } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
-import Header from './Header';
+import Header from './MentorHeader';
 import { UserContext } from '../UserContext';
 
 const MenteeProfile = () => {

@@ -7,7 +7,7 @@ const MentorCard = ({ mentor }) => {
           <img src={mentor.imageSrc} alt={mentor.imageAlt} className="w-16 h-16 rounded-full object-cover" />
           <div className="ml-4">
             <h3 className="text-lg font-medium text-gray-700">{mentor.name}</h3>
-            <p className="text-sm text-gray-600">{mentor.email}</p>
+            <p className="text-sm text-gray-600">{mentor.description}</p>
           </div>
         </div>
       </div>
