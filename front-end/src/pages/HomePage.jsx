@@ -8,6 +8,8 @@ export default function HomePage(){
     return(      
         <div>
             <Header/>  
+            
+           
             <FeaturesZigZag />  
             <Navbar />
         </div>
